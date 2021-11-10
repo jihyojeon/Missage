@@ -1,9 +1,10 @@
-import { model, Schema } from 'mongoose';
+import pkg from 'mongoose';
+const { model, Schema } = pkg;
 
 const noteSchema = new Schema({
   title: { type: String, default: 'Untitled' },
   audio: { type: String, required: true },
-  text: String,
+  text: { type: String, required: true },
   createdAt: { type: Date, default: Date.now },
   userID: { type: String, default: 'Snonymous' },
 });
