@@ -1,14 +1,41 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+:root {
+  --main-purple: #8828fe;
+  --main-black: #3b3665;
+  --main-gray: #a2a2a2;
+  --main-white: #ffffff;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+@font-face {
+  font-family: climatefont;
+  src: url(Climate_Crisis_Font_Ilmastofontti/ClimateCrisis-Variable.woff2);
+}
+@font-face {
+  font-family: climatefont-1990;
+  src: url(Climate_Crisis_Font_Ilmastofontti/Static_Fonts/ClimateCrisis-1990.woff2);
+}
+@font-face {
+  font-family: climatefont-2000;
+  src: url(Climate_Crisis_Font_Ilmastofontti/Static_Fonts/ClimateCrisis-2000.woff2);
+}
+@font-face {
+  font-family: climatefont-2010;
+  src: url(Climate_Crisis_Font_Ilmastofontti/Static_Fonts/ClimateCrisis-2010.woff2);
+}
+@font-face {
+  font-family: climatefont-2020;
+  src: url(Climate_Crisis_Font_Ilmastofontti/Static_Fonts/ClimateCrisis-2019.woff2);
+}
+@font-face {
+  font-family: climatefont-2030;
+  src: url(Climate_Crisis_Font_Ilmastofontti/Static_Fonts/ClimateCrisis-2030.woff2);
+}
+
+html,
+body {
+  /* font-family: Helvetica Neue, Helvetica, Arial, sans-serif; */
+  max-height: 100vh;
+  padding: 0;
+  margin: 0;
 }
 
 * {
