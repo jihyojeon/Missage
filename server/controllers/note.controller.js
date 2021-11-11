@@ -64,14 +64,26 @@ const deleteNote = async (req, res) => {
 const updateNote = async (req, res) => {
   try {
     const { id } = req.params;
-    const { text } = req.body;
-    const note = await Note.findByIdAndUpdate(
-      { _id: id },
-      { text: text },
-      { new: true }
-    );
-    res.status(201);
-    res.send(note);
+    const { text, icon } = req.body;
+    let note;
+    if (text) {
+      note = await Note.findByIdAndUpdate(
+        { _id: id },
+        { text: text },
+        { new: true }
+      );
+      res.status(201);
+      res.send(note);
+    }
+    if (icon) {
+      note = await Note.findByIdAndUpdate(
+        { _id: id },
+        { icon: icon },
+        { new: true }
+      );
+      res.status(201);
+      res.send(note);
+    }
   } catch (error) {
     console.error(error);
     res.status(500);
