@@ -1,0 +1,42 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 50px 30px 50px;
+}
+
+.menu {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  font-size: 15px;
+  width: 50%;
+}
+
+.menu a {
+  padding-left: 30px;
+}
+
+.logo {
+  margin-right: 50px;
+}
+
+.auth {
+  display: flex;
+  justify-content: space-around;
+}
+
+.auth button {
+  border-color: transparent;
+  cursor: pointer;
+  color: var(--main-white);
+  background-color: var(--main-purple);
+  margin-left: 30px;
+}
+
+/** For tablet devices **/
+/* @media (min-width: 768px) and (max-width: 1023px) {
+} */
+
+/** For mobile devices **/
+/* @media (max-width: 767px) {
+} */

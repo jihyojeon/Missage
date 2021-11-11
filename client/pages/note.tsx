@@ -1,14 +1,15 @@
 import Link from 'next/link';
+import Sidebar from '../components/Sidebar';
+import Content from '../components/Content';
+import AddNote from '../components/AddNote';
+import styles from './note.module.css';
 
 export default () => {
   return (
-    <div>
-      <h1 className="title">
-        <Link href="/">
-          <a>Missage</a>
-        </Link>
-      </h1>
-      <h2>Note Page</h2>
+    <div className={styles.note}>
+      <Sidebar></Sidebar>
+      {/* <Content></Content> */}
+      <AddNote></AddNote>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Navbar from '../components/Navbar';
-import styles from './download.module.css';
+import styles from './product.module.css';
 
 export default () => {
   return (

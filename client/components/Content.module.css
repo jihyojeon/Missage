@@ -1,0 +1,14 @@
+.component {
+  background-color: khaki;
+  width: 100%;
+  padding: 50px;
+}
+
+.noteName {
+  background-color: lightcoral;
+  font-size: 30px;
+}
+
+.content {
+  background-color: lightcyan;
+}

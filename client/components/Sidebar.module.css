@@ -1,0 +1,37 @@
+.component {
+  display: flex;
+}
+
+.side {
+  width: 220px;
+  height: 100vh;
+  background-color: purple;
+  resize: horizontal;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.border {
+  background-color: royalblue;
+  height: 100vh;
+  width: 5px;
+}
+
+.info {
+  height: 50px;
+  background-color: rosybrown;
+  margin: 10px;
+}
+
+.note {
+  margin: 10px;
+  background-color: saddlebrown;
+  flex: 1;
+}
+
+.new {
+  padding: 10px;
+  width: inherit;
+  margin-bottom: 5px;
+}

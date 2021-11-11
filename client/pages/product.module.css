@@ -1,0 +1,45 @@
+.page {
+  min-height: 100vh;
+  background-image: url(../styles/blurry-gradient-haikei.svg);
+  /* bottom */
+  background-position: center -300px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-origin: padding-box;
+  background-clip: border-box;
+}
+
+.wave {
+  position: absolute;
+  /* bottom */
+  bottom: 300px;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.wave svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 150px;
+}
+
+/** For tablet devices **/
+@media (min-width: 768px) and (max-width: 1023px) {
+  .wave svg {
+    width: calc(100% + 1.3px);
+    height: 110px;
+  }
+}
+
+/** For mobile devices **/
+@media (max-width: 767px) {
+  .wave svg {
+    width: calc(100% + 1.3px);
+    height: 66px;
+  }
+}
