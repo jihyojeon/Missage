@@ -8,13 +8,15 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@types/gestalt": "^38.0.0",
+    "gestalt": "^40.0.6",
     "next": "12.0.3",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   },
   "devDependencies": {
     "@types/node": "16.11.7",
-    "@types/react": "17.0.34",
+    "@types/react": "^17.0.34",
     "eslint": "7.32.0",
     "eslint-config-next": "12.0.3",
     "typescript": "4.4.4"
