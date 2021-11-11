@@ -14,9 +14,10 @@ const postNote = async (req, res) => {
   }
 };
 
-const getAllNote = async (req, res) => {
+const getAll = async (req, res) => {
   try {
     const notes = await Note.find();
+    console.log(notes);
     res.send(notes);
   } catch (error) {
     console.error(error);
@@ -31,6 +32,16 @@ const getNote = async (req, res) => {
       _id: id,
     });
     res.send(note);
+  } catch (error) {
+    console.error(error);
+    res.status(500);
+  }
+};
+
+const deleteAll = async (req, res) => {
+  try {
+    await Note.deleteMany();
+    res.sendStatus(204);
   } catch (error) {
     console.error(error);
     res.status(500);
@@ -72,5 +83,6 @@ export default {
   getNote,
   deleteNote,
   updateNote,
-  getAllNote,
+  getAll,
+  deleteAll,
 };

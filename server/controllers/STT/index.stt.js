@@ -1,10 +1,18 @@
 import { SpeechClient } from '@google-cloud/speech';
+import fs from 'fs';
 
-export default async (audioURL) => {
+export default async (input) => {
   const keyFilename = 'controllers/STT/missage-38c481f53476.json';
   const client = new SpeechClient({ keyFilename });
 
-  const gcsUri = audioURL;
+  let gcsUri;
+  let audioFile;
+  if (typeof input === 'string') {
+    gcsUri = input;
+  } else {
+    audioFile = fs.readFileSync(input).toString('base64');
+  }
+
   const encoding = 'LINEAR16';
   const sampleRateHertz = 16000;
   const languageCode = 'en-US';
@@ -16,9 +24,17 @@ export default async (audioURL) => {
     languageCode: languageCode,
   };
 
-  const audio = {
-    uri: gcsUri,
-  };
+  let audio;
+
+  if (gcsUri) {
+    audio = {
+      uri: gcsUri,
+    };
+  } else {
+    audio = {
+      content: audioFile,
+    };
+  }
 
   const request = {
     config: config,
