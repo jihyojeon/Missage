@@ -35,3 +35,14 @@
   width: inherit;
   margin-bottom: 5px;
 }
+
+.icon {
+  background-color: transparent;
+  border: transparent;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.picker {
+  display: none;
+}

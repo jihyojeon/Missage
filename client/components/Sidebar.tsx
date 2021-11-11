@@ -1,7 +1,15 @@
 import Link from 'next/link';
 import styles from './Sidebar.module.css';
+import React, { useState } from 'react';
+let Picker;
+if (typeof window !== 'undefined') {
+  import('emoji-picker-react').then((_module) => {
+    Picker = _module.default;
+  });
+}
 
-export default ({ notes }) => {
+export default ({ notes, putNote }) => {
+  const [showID, setShowID] = useState('');
   const resize = () => {
     const sidebarDiv = document.getElementsByClassName(styles.side)[0];
     const orgWidth: number = sidebarDiv
@@ -12,7 +20,28 @@ export default ({ notes }) => {
 
   const noteList = (notes: []) => {
     if (notes) {
-      return notes.map((note) => <p key={note._id}>{note.title}</p>);
+      return notes.map((note) => (
+        <div key={note._id}>
+          <button
+            className={styles.icon}
+            onClick={() => {
+              setShowID(note._id);
+            }}
+          >
+            {note.icon}
+          </button>
+          {note.title}
+          {showID === note._id ? (
+            <Picker
+              className={styles.picker}
+              onEmojiClick={(event, emojiObject) => {
+                putNote(emojiObject.emoji, note._id);
+                setShowID('');
+              }}
+            />
+          ) : null}
+        </div>
+      ));
     }
   };
 
@@ -24,7 +53,7 @@ export default ({ notes }) => {
         <button className={styles.new}>new note</button>
         {/* https://www.npmjs.com/package/react-beautiful-dnd-next */}
       </div>
-      <div className={styles.border} onClick={resize}></div>
+      <div className={styles.border}></div>
     </div>
   );
 };
