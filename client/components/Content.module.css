@@ -1,5 +1,5 @@
 .component {
-  background-color: khaki;
+  background-color: grey;
   width: 100%;
   padding: 50px;
 }
@@ -9,6 +9,12 @@
   font-size: 30px;
 }
 
-.content {
+.noteIcon {
+  background-color: khaki;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.noteText {
   background-color: lightcyan;
 }

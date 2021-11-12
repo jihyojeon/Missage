@@ -38,8 +38,8 @@
 
 .new {
   padding: 10px;
-  width: inherit;
-  margin-bottom: 5px;
+  margin: 10px;
+  background-color: honeydew;
 }
 
 .icon {

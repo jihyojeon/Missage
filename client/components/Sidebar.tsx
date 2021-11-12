@@ -26,7 +26,7 @@ export default ({ notes, putNote }) => {
             <div
               className={styles.icon}
               onClick={() => {
-                setShowID(note._id);
+                !showID ? setShowID(note._id) : setShowID('');
               }}
             >
               {note.icon}
@@ -59,7 +59,11 @@ export default ({ notes, putNote }) => {
           My Notes
           {noteList(notes)}
         </div>
-        <button className={styles.new}>new note</button>
+        <Link href="/note">
+          <a>
+            <div className={styles.new}>New Note</div>
+          </a>
+        </Link>
         {/* https://www.npmjs.com/package/react-beautiful-dnd-next */}
       </div>
       <div className={styles.border}></div>
