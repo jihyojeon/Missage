@@ -5,6 +5,8 @@ import AddNote from '../components/AddNote';
 import styles from './note.module.css';
 import { useState, useEffect } from 'react';
 import ApiService from './api/ApiService';
+import { redirect } from 'next/dist/server/api-utils';
+import { NextResponse, NextRequest } from 'next/server';
 
 export default () => {
   const [notes, setNotes] = useState([]);
@@ -17,8 +19,9 @@ export default () => {
   }, []);
 
   const postNote = (body) => {
-    ApiService.postNote(body).then((newNote) => {
-      setNotes([...notes, newNote]);
+    ApiService.postNote(body).then((note) => {
+      setNotes([...notes, note]);
+      // NextResponse.redirect(`/note/${note._id}`);
     });
   };
 

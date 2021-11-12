@@ -14,10 +14,18 @@
 
 .menu a {
   padding-left: 30px;
+  font-size: 17px;
+  text-decoration: none;
+}
+
+.menu a:hover {
+  transition: 0.4s;
+  color: var(--main-white);
 }
 
 .logo {
   margin-right: 50px;
+  text-decoration: none;
 }
 
 .auth {
@@ -27,6 +35,8 @@
 
 .auth button {
   border-color: transparent;
+  border-radius: 10px;
+  height: 24px;
   cursor: pointer;
   color: var(--main-white);
   background-color: var(--main-purple);

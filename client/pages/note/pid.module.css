@@ -1,3 +1,11 @@
 .note {
   display: flex;
+
+  background-image: url(../../styles/blurry-gradient-haikei.svg);
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-origin: padding-box;
+  background-clip: border-box;
 }

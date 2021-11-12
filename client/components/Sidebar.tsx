@@ -31,9 +31,9 @@ export default ({ notes, putNote }) => {
             >
               {note.icon}
             </div>
-            <p className={styles.title}>
+            <p className={styles.titleBox}>
               <Link href={`/note/${note._id}`}>
-                <a>{note.title}</a>
+                <a className={styles.title}>{note.title}</a>
               </Link>
             </p>
           </div>
@@ -56,7 +56,7 @@ export default ({ notes, putNote }) => {
       <div className={styles.side}>
         <div className={styles.info}>User Info</div>
         <div className={styles.note}>
-          My Notes
+          <p className={styles.listTitle}>My Notes</p>
           {noteList(notes)}
         </div>
         <Link href="/note">

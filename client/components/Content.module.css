@@ -1,31 +1,81 @@
 .component {
-  background-color: grey;
   width: 100%;
   padding: 50px;
 }
 
-.noteIcon {
-  background-color: greenyellow;
-  width: 30px;
+.iconBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.noteIconButton {
-  background-color: green;
-  font-size: 30px;
+.noteIcon {
+  width: 50px;
+  font-size: 50px;
+  cursor: pointer;
+  margin: 0;
+}
+
+.noteIcon:hover {
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+
+.trashcan {
+  cursor: pointer;
+}
+
+.trashcan:hover {
+  transform: scale(1.1);
+  transition: 0.3s;
+  color: var(--main-purple);
   cursor: pointer;
 }
 
 .noteTitle {
-  background-color: lightcoral;
+  background-color: var(--main-white);
+  border-radius: 10px;
   font-size: 30px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.titleInput {
+  border: 1px solid var(--main-gray);
+  border-radius: 10px;
+  text-align: center;
+  box-sizing: border-box;
+  background-color: var(--main-white);
+  width: 100%;
+  height: 80px;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 70%;
 }
 
 .noteText {
-  background-color: lightcyan;
+  font-size: 20px;
+  background-color: var(--main-white);
+  border-radius: 10px;
+  margin-top: 30px;
+  padding: 50px;
+  height: 70vh;
 }
 
-.input {
+.textInput {
+  padding: 50px;
+  vertical-align: top;
+  font-size: 20px;
   box-sizing: border-box;
+  background-color: var(--main-white);
+  opacity: 70%;
+  border-radius: 10px;
+  margin-top: 30px;
   width: 100%;
-  height: 100%;
+  height: 70vh;
+  text-align: start;
 }

@@ -1,5 +1,11 @@
 .options {
-  background-color: lightgray;
+  background-image: url(../styles/blurry-gradient-haikei.svg);
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-origin: padding-box;
+  background-clip: border-box;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -9,7 +15,6 @@
 .drag {
   height: 300px;
   width: 300px;
-  background-color: lightskyblue;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -18,19 +23,19 @@
 
 .icon {
   font-size: 70px;
-  color: white;
+  color: var(--main-black);
 }
 
-/* 배경 화면 색 계속 바꾸게 넣기? */
 .icon:hover {
   transform: scale(1.1);
+  transition: 0.3s;
+  color: var(--main-purple);
   cursor: pointer;
 }
 
 .record {
   height: 300px;
   width: 300px;
-  background-color: yellowgreen;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -39,4 +44,10 @@
 
 .file {
   display: none;
+}
+
+.title {
+  font-size: 20px;
+  color: var(--main-black);
+  margin: 30px;
 }

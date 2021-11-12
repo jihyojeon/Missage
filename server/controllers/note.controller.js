@@ -1,11 +1,27 @@
 import Note from '../models/note.model.js';
 import textify from './STT/index.stt.js';
+import multer from 'multer';
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'uploads');
+  },
+  filename: (req, file, cb) => {
+    cb(null, `${file.filename}-${Date.now()}`);
+  },
+});
+
+const upload = multer({ storage: storage });
 
 const postNote = async (req, res) => {
   try {
-    const { title, audio, userID } = req.body;
-    const text = await textify(audio);
-    const newNote = await Note.create({ title, audio, text, userID });
+    console.log(req.files);
+    const audioFile = req.files.audio;
+    audioFile.mv('uploads/' + audioFile.name);
+    const audio = audioFile.name;
+    const text = await textify(audioFile.name);
+    const newNote = await Note.create({ audio, text });
+    console.log(newNote);
     res.send(newNote);
     res.status(201);
   } catch (error) {

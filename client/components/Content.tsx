@@ -1,5 +1,7 @@
 import styles from './Content.module.css';
 import React, { useState, useEffect, useRef } from 'react';
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 let Picker;
 if (typeof window !== 'undefined') {
@@ -66,49 +68,58 @@ export default ({ notes, pid, putNote, editTitle, editText }) => {
 
   return (
     <div className={styles.component}>
-      <p ref={iconref} className={styles.noteIcon}>
-        <div
-          className={styles.noteIconButton}
-          onClick={() => {
-            !show ? setShow(true) : setShow(false);
-          }}
-        >
-          {note?.icon}
-        </div>
-        {show ? (
-          <Picker
-            className={styles.picker}
-            onEmojiClick={(event, emojiObject) => {
-              putNote(emojiObject.emoji, pid);
-              setShow(false);
+      <div className={styles.iconBar}>
+        <p ref={iconref} className={styles.noteIcon}>
+          <div
+            onClick={() => {
+              !show ? setShow(true) : setShow(false);
             }}
-          />
-        ) : null}
-      </p>
-      <p className={styles.noteTitle} ref={titleref}>
+          >
+            {note?.icon}
+          </div>
+          {show ? (
+            <Picker
+              className={styles.picker}
+              onEmojiClick={(event, emojiObject) => {
+                putNote(emojiObject.emoji, pid);
+                setShow(false);
+              }}
+            />
+          ) : null}
+        </p>
+        <FontAwesomeIcon
+          // onClick={trigger}
+          icon={faTrashAlt}
+          className={styles.trashcan}
+        ></FontAwesomeIcon>
+      </div>
+      <p ref={titleref}>
         {editableTitle ? (
           <input
-            className={styles.input}
+            className={styles.titleInput}
             type="text"
             value={title}
             onChange={(e) => handleChange(e)}
             onKeyDown={handleKeyDown}
           />
         ) : (
-          <div onClick={() => editOn()}>{note?.title}</div>
+          <div className={styles.noteTitle} onClick={() => editOn()}>
+            {note?.title}
+          </div>
         )}
       </p>
-      <p className={styles.noteText} ref={textref}>
+      <p ref={textref}>
         {editableText ? (
-          <input
-            className={styles.input}
-            type="text"
+          <textarea
+            className={styles.textInput}
             value={noteText}
             onChange={(e) => handleChangeText(e)}
             onKeyDown={handleKeyDownText}
           />
         ) : (
-          <div onClick={() => editOnText()}>{note?.text}</div>
+          <div className={styles.noteText} onClick={() => editOnText()}>
+            {note?.text}
+          </div>
         )}
       </p>
     </div>

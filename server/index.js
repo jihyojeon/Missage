@@ -2,12 +2,24 @@ import express from 'express';
 import cors from 'cors';
 import router from './router.js';
 import db from './models/index.model.js';
+import fileUpload from 'express-fileupload';
+import morgan from 'morgan';
+import fs from 'fs';
+import path from 'path';
+import ejs from 'ejs';
 
 const port = 3001;
 const app = express();
 
+app.use(
+  fileUpload({
+    createParentPath: true,
+  })
+);
 app.use(cors());
 app.use(express.json());
+app.use(morgan('dev'));
+app.set('view engine', 'ejs');
 app.use(router);
 
 (async function () {

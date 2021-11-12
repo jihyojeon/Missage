@@ -14,13 +14,14 @@ function getAll() {
   return fetchRequest('/note');
 }
 
-function postNote(body: FormData) {
+function postNote(form) {
+  for (var key of form.entries()) {
+    console.log(key[0] + ', ' + key[1]);
+  }
   return fetchRequest('/note', {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(body),
+    redirect: 'follow',
+    body: form,
   });
 }
 

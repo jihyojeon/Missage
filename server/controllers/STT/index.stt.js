@@ -5,14 +5,7 @@ export default async (input) => {
   const keyFilename = 'controllers/STT/missage-38c481f53476.json';
   const client = new SpeechClient({ keyFilename });
 
-  let gcsUri;
-  let audioFile;
-  if (typeof input === 'string') {
-    gcsUri = input;
-  } else {
-    audioFile = fs.readFileSync(input).toString('base64');
-  }
-
+  const filename = `/Users/jihyojeon/Documents/Codeworks/Senior/Solo/Missage/server/uploads/${input}`;
   const encoding = 'LINEAR16';
   const sampleRateHertz = 16000;
   const languageCode = 'en-US';
@@ -24,17 +17,9 @@ export default async (input) => {
     languageCode: languageCode,
   };
 
-  let audio;
-
-  if (gcsUri) {
-    audio = {
-      uri: gcsUri,
-    };
-  } else {
-    audio = {
-      content: audioFile,
-    };
-  }
+  const audio = {
+    content: fs.readFileSync(filename).toString('base64'),
+  };
 
   const request = {
     config: config,

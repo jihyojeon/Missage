@@ -22,11 +22,10 @@ export default ({ postNote }) => {
 
   const send = async (userAudio: File) => {
     if (userAudio) {
-      console.log(userAudio);
-      const body = new FormData();
-      body.append('file', userAudio);
-      postNote(body);
-      console.log(body);
+      const formData = new FormData();
+      formData.append('audio', userAudio, userAudio.name);
+      console.log(formData);
+      postNote(formData);
     }
   };
 
@@ -37,7 +36,7 @@ export default ({ postNote }) => {
   return (
     <div className={styles.options}>
       <div className={styles.drag}>
-        <p>Drag and Drop | Upload</p>
+        <p className={styles.title}>Drag and Drop | Upload</p>
         <input type="file" className={styles.file} onChange={upload} />
         <FontAwesomeIcon
           onClick={trigger}
@@ -46,7 +45,7 @@ export default ({ postNote }) => {
         ></FontAwesomeIcon>
       </div>
       <div className={styles.record}>
-        <p>Record</p>
+        <p className={styles.title}>Record</p>
         <FontAwesomeIcon
           icon={faMicrophoneAlt}
           className={styles.icon}
