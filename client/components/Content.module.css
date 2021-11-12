@@ -4,15 +4,20 @@
   padding: 50px;
 }
 
-.noteName {
-  background-color: lightcoral;
-  font-size: 30px;
+.noteIcon {
+  background-color: greenyellow;
+  width: 30px;
 }
 
-.noteIcon {
-  background-color: khaki;
+.noteIconButton {
+  background-color: green;
   font-size: 30px;
   cursor: pointer;
+}
+
+.noteTitle {
+  background-color: lightcoral;
+  font-size: 30px;
 }
 
 .noteText {
@@ -20,6 +25,7 @@
 }
 
 .input {
-  width: 300px;
-  height: 50%;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
 }

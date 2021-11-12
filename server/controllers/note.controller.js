@@ -64,12 +64,21 @@ const deleteNote = async (req, res) => {
 const updateNote = async (req, res) => {
   try {
     const { id } = req.params;
-    const { text, icon } = req.body;
+    const { text, icon, title } = req.body;
     let note;
     if (text) {
       note = await Note.findByIdAndUpdate(
         { _id: id },
         { text: text },
+        { new: true }
+      );
+      res.status(201);
+      res.send(note);
+    }
+    if (title) {
+      note = await Note.findByIdAndUpdate(
+        { _id: id },
+        { title: title },
         { new: true }
       );
       res.status(201);

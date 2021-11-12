@@ -1,4 +1,4 @@
-import styles from './content.module.css';
+import styles from './Content.module.css';
 import React, { useState, useEffect, useRef } from 'react';
 
 let Picker;
@@ -26,18 +26,12 @@ export default ({ notes, pid, putNote, editTitle, editText }) => {
   });
 
   const handleClickOutside = (e) => {
-    let ref;
-    editableTitle
-      ? (ref = titleref)
-      : editableText
-      ? (ref = textref)
-      : iconref
-      ? (ref = iconref)
-      : null;
-    if (editableTitle && !ref.current.contains(e.target))
+    if (titleref && editableTitle && !titleref.current.contains(e.target))
       setEditableTitle(false);
-    if (editableText && !ref.current.contains(e.target)) setEditableText(false);
-    if (show && !ref.current.contains(e.target)) {
+    if (textref && editableText && !textref.current.contains(e.target))
+      setEditableText(false);
+    if (iconref && show && !iconref.current.contains(e.target)) {
+      console.log('test');
       setShow(false);
     }
   };
@@ -71,25 +65,27 @@ export default ({ notes, pid, putNote, editTitle, editText }) => {
   };
 
   return (
-    <div className={styles.component} ref={iconref}>
-      <p
-        className={styles.noteIcon}
-        onClick={() => {
-          !show ? setShow(true) : setShow(false);
-        }}
-      >
-        {note?.icon}
-      </p>
-      {show ? (
-        <Picker
-          className={styles.picker}
-          onEmojiClick={(event, emojiObject) => {
-            putNote(emojiObject.emoji, pid);
-            setShow(false);
+    <div className={styles.component}>
+      <p ref={iconref} className={styles.noteIcon}>
+        <div
+          className={styles.noteIconButton}
+          onClick={() => {
+            !show ? setShow(true) : setShow(false);
           }}
-        />
-      ) : null}
-      <p className={styles.noteName} ref={titleref}>
+        >
+          {note?.icon}
+        </div>
+        {show ? (
+          <Picker
+            className={styles.picker}
+            onEmojiClick={(event, emojiObject) => {
+              putNote(emojiObject.emoji, pid);
+              setShow(false);
+            }}
+          />
+        ) : null}
+      </p>
+      <p className={styles.noteTitle} ref={titleref}>
         {editableTitle ? (
           <input
             className={styles.input}
@@ -105,6 +101,7 @@ export default ({ notes, pid, putNote, editTitle, editText }) => {
       <p className={styles.noteText} ref={textref}>
         {editableText ? (
           <input
+            className={styles.input}
             type="text"
             value={noteText}
             onChange={(e) => handleChangeText(e)}
