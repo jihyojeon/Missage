@@ -18,3 +18,8 @@
 .noteText {
   background-color: lightcyan;
 }
+
+.input {
+  width: 300px;
+  height: 50%;
+}

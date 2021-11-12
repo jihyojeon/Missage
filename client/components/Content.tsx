@@ -1,5 +1,5 @@
 import styles from './content.module.css';
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 let Picker;
 if (typeof window !== 'undefined') {
@@ -13,10 +13,34 @@ export default ({ notes, pid, putNote, editTitle, editText }) => {
 
   const [show, setShow] = useState(false);
 
+  const titleref = useRef(null);
+  const textref = useRef(null);
+  const iconref = useRef(null);
   const [title, setTitle] = useState('');
   const [editableTitle, setEditableTitle] = useState(false);
   const [noteText, setNoteText] = useState('');
   const [editableText, setEditableText] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener('click', handleClickOutside, true);
+  });
+
+  const handleClickOutside = (e) => {
+    let ref;
+    editableTitle
+      ? (ref = titleref)
+      : editableText
+      ? (ref = textref)
+      : iconref
+      ? (ref = iconref)
+      : null;
+    if (editableTitle && !ref.current.contains(e.target))
+      setEditableTitle(false);
+    if (editableText && !ref.current.contains(e.target)) setEditableText(false);
+    if (show && !ref.current.contains(e.target)) {
+      setShow(false);
+    }
+  };
 
   const editOn = () => {
     setTitle(note.title);
@@ -47,7 +71,7 @@ export default ({ notes, pid, putNote, editTitle, editText }) => {
   };
 
   return (
-    <div className={styles.component}>
+    <div className={styles.component} ref={iconref}>
       <p
         className={styles.noteIcon}
         onClick={() => {
@@ -65,9 +89,10 @@ export default ({ notes, pid, putNote, editTitle, editText }) => {
           }}
         />
       ) : null}
-      <p className={styles.noteName}>
+      <p className={styles.noteName} ref={titleref}>
         {editableTitle ? (
           <input
+            className={styles.input}
             type="text"
             value={title}
             onChange={(e) => handleChange(e)}
@@ -77,7 +102,7 @@ export default ({ notes, pid, putNote, editTitle, editText }) => {
           <div onClick={() => editOn()}>{note?.title}</div>
         )}
       </p>
-      <p className={styles.noteText}>
+      <p className={styles.noteText} ref={textref}>
         {editableText ? (
           <input
             type="text"
