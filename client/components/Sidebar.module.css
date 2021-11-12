@@ -30,6 +30,12 @@
   flex: 1;
 }
 
+.noteItem {
+  display: flex;
+  align-items: center;
+  height: 30px;
+}
+
 .new {
   padding: 10px;
   width: inherit;
@@ -37,10 +43,18 @@
 }
 
 .icon {
-  background-color: transparent;
+  background-color: khaki;
   border: transparent;
   cursor: pointer;
   font-size: 20px;
+  display: flex;
+  align-items: center;
+  height: 25px;
+}
+
+.title {
+  background-color: tomato;
+  width: 100%;
 }
 
 .picker {

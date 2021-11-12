@@ -1,13 +1,38 @@
 import styles from './content.module.css';
+import React, { useState } from 'react';
+let Picker;
+if (typeof window !== 'undefined') {
+  import('emoji-picker-react').then((_module) => {
+    Picker = _module.default;
+  });
+}
 
-let notecontent: string =
-  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
+export default ({ notes, pid, putNote }) => {
+  const [showID, setShowID] = useState('');
 
-export default () => {
+  const note = notes.find((note: {}) => note._id === pid);
+
   return (
     <div className={styles.component}>
-      <p className={styles.noteName}>Note Title</p>
-      <p className={styles.content}>{notecontent}</p>
+      <p
+        className={styles.noteName}
+        onClick={() => {
+          setShowID(note._id);
+        }}
+      >
+        {note?.icon}
+      </p>
+      {showID === pid ? (
+        <Picker
+          className={styles.picker}
+          onEmojiClick={(event, emojiObject) => {
+            putNote(emojiObject.emoji, pid);
+            setShowID('');
+          }}
+        />
+      ) : null}
+      <p className={styles.noteName}>{note?.title}</p>
+      <p className={styles.content}>{note?.text}</p>
     </div>
   );
 };

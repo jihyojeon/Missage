@@ -10,10 +10,33 @@
   height: 300px;
   width: 300px;
   background-color: lightskyblue;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon {
+  font-size: 70px;
+  color: white;
+}
+
+/* 배경 화면 색 계속 바꾸게 넣기? */
+.icon:hover {
+  transform: scale(1.1);
+  cursor: pointer;
 }
 
 .record {
   height: 300px;
   width: 300px;
-  background-color: lightyellow;
+  background-color: yellowgreen;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.file {
+  display: none;
 }

@@ -22,15 +22,21 @@ export default ({ notes, putNote }) => {
     if (notes) {
       return notes.map((note) => (
         <div key={note._id}>
-          <button
-            className={styles.icon}
-            onClick={() => {
-              setShowID(note._id);
-            }}
-          >
-            {note.icon}
-          </button>
-          {note.title}
+          <div className={styles.noteItem}>
+            <div
+              className={styles.icon}
+              onClick={() => {
+                setShowID(note._id);
+              }}
+            >
+              {note.icon}
+            </div>
+            <p className={styles.title}>
+              <Link href={`/note/${note._id}`}>
+                <a>{note.title}</a>
+              </Link>
+            </p>
+          </div>
           {showID === note._id ? (
             <Picker
               className={styles.picker}
@@ -49,7 +55,10 @@ export default ({ notes, putNote }) => {
     <div className={styles.component}>
       <div className={styles.side}>
         <div className={styles.info}>User Info</div>
-        <div className={styles.note}>{noteList(notes)}</div>
+        <div className={styles.note}>
+          My Notes
+          {noteList(notes)}
+        </div>
         <button className={styles.new}>new note</button>
         {/* https://www.npmjs.com/package/react-beautiful-dnd-next */}
       </div>
