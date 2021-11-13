@@ -17,10 +17,12 @@ const upload = multer({ storage: storage });
 const postNote = async (req, res) => {
   try {
     const audioFile = req.files.audio;
+    const userID = req.body.userID;
     audioFile.mv('uploads/input.wav');
     const audio = audioFile.name;
+    console.log({ userID });
     const text = await textify('input.wav');
-    const newNote = await Note.create({ audio, text });
+    const newNote = await Note.create({ audio, text, userID });
     audioFile.mv(`uploads/${newNote._id}.wav`);
     res.send(newNote);
     res.status(201);
