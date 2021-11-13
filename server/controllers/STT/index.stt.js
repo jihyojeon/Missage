@@ -26,9 +26,6 @@ export default async (input) => {
     audio: audio,
   };
 
-  // Detects speech in the audio file. This creates a recognition job that you
-  // can wait for now, or get its result later.
-
   const [operation] = await client.longRunningRecognize(request);
   const [response] = await operation.promise();
 
@@ -38,7 +35,8 @@ export default async (input) => {
   };
 
   response.results.forEach((result) => {
-    sttOutput.transcript = result.alternatives[0].transcript;
+    console.log(result.alternatives[0].transcript);
+    sttOutput.transcript += result.alternatives[0].transcript;
     result.alternatives[0].words.forEach((wordInfo) => {
       const startSecs =
         `${wordInfo.startTime.seconds}` +

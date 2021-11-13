@@ -15,13 +15,12 @@ const upload = multer({ storage: storage });
 
 const postNote = async (req, res) => {
   try {
-    console.log(req.files);
     const audioFile = req.files.audio;
     audioFile.mv('uploads/' + audioFile.name);
     const audio = audioFile.name;
     const text = await textify(audioFile.name);
     const newNote = await Note.create({ audio, text });
-    console.log(newNote);
+    audioFile.mv('uploads/' + newNote._id);
     res.send(newNote);
     res.status(201);
   } catch (error) {
@@ -33,7 +32,6 @@ const postNote = async (req, res) => {
 const getAll = async (req, res) => {
   try {
     const notes = await Note.find();
-    console.log(notes);
     res.send(notes);
   } catch (error) {
     console.error(error);
