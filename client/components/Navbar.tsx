@@ -25,20 +25,24 @@ export default () => {
       <div className={styles.auth}>
         {user && !loading ? (
           <>
-            <Link href="/api/logout">
-              <a>Logout</a>
-            </Link>
             <Link href="/note">
               <a>My Note</a>
+            </Link>
+            <Link href="/api/logout">
+              <a>Logout</a>
             </Link>
           </>
         ) : null}
         {!user && !loading ? (
-          <Link href="/api/login">
-            <a>Login</a>
-          </Link>
+          <>
+            <Link href="/api/login">
+              <a>Login</a>
+            </Link>
+            <Link href="/api/login">
+              <a>Try Missage Free</a>
+            </Link>
+          </>
         ) : null}
-        <button>Try Missage Free</button>
       </div>
     </div>
   );
