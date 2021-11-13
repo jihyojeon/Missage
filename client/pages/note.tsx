@@ -15,7 +15,6 @@ export default () => {
   useEffect(() => {
     ApiService.getAll().then((notes) => {
       setNotes(notes);
-      console.log(notes);
     });
   }, []);
 
@@ -31,7 +30,6 @@ export default () => {
       setNotes((noteList) => {
         const noteToUpdate = noteList.find((note) => note._id === id);
         noteToUpdate.icon = updatedNote.icon;
-        console.log(updatedNote);
         return [...noteList];
       });
     });

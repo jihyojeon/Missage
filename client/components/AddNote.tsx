@@ -28,10 +28,6 @@ export default ({ postNote }) => {
     }
   };
 
-  const trigger = () => {
-    document.getElementsByClassName(styles.file)[0].click();
-  };
-
   const onDrop = useCallback((acceptedFiles) => {
     console.log(acceptedFiles);
     send(acceptedFiles[0]);
@@ -51,7 +47,6 @@ export default ({ postNote }) => {
             onChange={upload}
           />
           <FontAwesomeIcon
-            onClick={trigger}
             icon={faFileUpload}
             className={styles.icon}
           ></FontAwesomeIcon>
@@ -66,7 +61,6 @@ export default ({ postNote }) => {
             onChange={upload}
           />
           <FontAwesomeIcon
-            onClick={trigger}
             icon={faFileUpload}
             className={styles.icon}
           ></FontAwesomeIcon>

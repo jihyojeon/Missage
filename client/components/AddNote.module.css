@@ -21,6 +21,10 @@
   align-items: center;
 }
 
+.drag:hover {
+  border-style: dotted;
+}
+
 .dragActive {
   height: 300px;
   width: 400px;
@@ -46,6 +50,7 @@
 .record {
   height: 300px;
   width: 200px;
+  margin-right: 100px;
   display: flex;
   flex-direction: column;
   justify-content: center;
