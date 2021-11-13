@@ -29,6 +29,12 @@ const Note = () => {
     });
   };
 
+  const deleteNote = (id: string) => {
+    ApiService.deleteNote(id).then(() =>
+      setNotes(notes.filter((note) => note._id !== id))
+    );
+  };
+
   const editTitle = (title: string, id: string) => {
     ApiService.putNote({ title }, id).then((updatedNote) => {
       setNotes((noteList) => {
@@ -60,6 +66,7 @@ const Note = () => {
         putNote={putNote}
         editTitle={editTitle}
         editText={editText}
+        deleteNote={deleteNote}
       ></Content>
     </div>
   );

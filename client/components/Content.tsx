@@ -10,7 +10,7 @@ if (typeof window !== 'undefined') {
   });
 }
 
-export default ({ notes, pid, putNote, editTitle, editText }) => {
+export default ({ notes, pid, putNote, editTitle, editText, deleteNote }) => {
   const note = notes.find((note: {}) => note._id === pid);
 
   const [show, setShow] = useState(false);
@@ -88,7 +88,7 @@ export default ({ notes, pid, putNote, editTitle, editText }) => {
           ) : null}
         </p>
         <FontAwesomeIcon
-          // onClick={trigger}
+          onClick={() => deleteNote(pid)}
           icon={faTrashAlt}
           className={styles.trashcan}
         ></FontAwesomeIcon>

@@ -14,6 +14,12 @@ function getAll() {
   return fetchRequest('/note');
 }
 
+function deleteNote(id: string) {
+  return fetchRequest(`/note/${id}`, {
+    method: 'DELETE',
+  });
+}
+
 function postNote(form) {
   for (var key of form.entries()) {
     console.log(key[0] + ', ' + key[1]);
@@ -35,6 +41,6 @@ function putNote(body: object, id: string) {
   });
 }
 
-const ApiService = { postNote, getAll, putNote };
+const ApiService = { postNote, getAll, putNote, deleteNote };
 
 export default ApiService;
