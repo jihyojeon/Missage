@@ -1,11 +1,14 @@
 import React, { useEffect } from 'react';
 import Router from 'next/router';
+import { useFetchUser } from '../utils/user';
 
 export default function Index() {
+  const { user, loading } = useFetchUser();
+
   useEffect(() => {
     const { pathname } = Router;
     if (pathname == '/') {
-      Router.push('/product');
+      user ? Router.push('/note') : Router.push('/product');
     }
   });
   return <p>Jihyo</p>;

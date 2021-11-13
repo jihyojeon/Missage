@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import styles from './Sidebar.module.css';
 import React, { useState } from 'react';
+import { useFetchUser } from '../utils/user';
+
 let Picker;
 if (typeof window !== 'undefined') {
   import('emoji-picker-react').then((_module) => {
@@ -9,6 +11,8 @@ if (typeof window !== 'undefined') {
 }
 
 export default ({ notes, putNote, pid }) => {
+  const { user, loading } = useFetchUser();
+
   const [showID, setShowID] = useState('');
   const resize = () => {
     const sidebarDiv = document.getElementsByClassName(styles.side)[0];
@@ -63,7 +67,15 @@ export default ({ notes, putNote, pid }) => {
   return (
     <div className={styles.component}>
       <div className={styles.side}>
-        <div className={styles.info}>User Info</div>
+        <div className={styles.info}>
+          {user ? (
+            <>
+              {console.log(user)}
+              <img className={styles.pic} src={user.picture} alt="" />
+              {`${user.given_name}'s notes`}
+            </>
+          ) : null}
+        </div>
         <div className={styles.note}>
           <p className={styles.listTitle}>My Notes</p>
           {noteList(notes)}

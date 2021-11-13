@@ -1,7 +1,5 @@
 import Link from 'next/link';
 import styles from './Navbar.module.css';
-import { Layout, Menu } from 'antd';
-import styled from 'styled-components';
 import { useFetchUser } from '../utils/user';
 
 export default () => {
