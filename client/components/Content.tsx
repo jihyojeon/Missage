@@ -90,8 +90,9 @@ export default ({ notes, pid, putNote, editTitle, editText, deleteNote }) => {
         </p>
         <FontAwesomeIcon
           onClick={() => {
-            deleteNote(pid);
-            Router.push(`/note/${notes[0]._id}`);
+            const after = deleteNote(pid);
+            console.log(after);
+            Router.push(`/note`);
           }}
           icon={faTrashAlt}
           className={styles.trashcan}

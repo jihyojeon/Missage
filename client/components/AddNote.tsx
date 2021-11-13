@@ -8,7 +8,7 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useDropzone } from 'react-dropzone';
 
-export default ({ postNote }) => {
+export default ({ postNote, userid }) => {
   const [audio, setAudio] = useState(null);
   const [note, setNote] = useState({});
 
@@ -24,6 +24,7 @@ export default ({ postNote }) => {
     if (userAudio) {
       const formData = new FormData();
       formData.append('audio', userAudio, userAudio.name);
+      formData.append('userID', userid);
       const newNote = await postNote(formData);
     }
   };

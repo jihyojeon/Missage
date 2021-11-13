@@ -14,15 +14,12 @@ export default ({ notes, putNote, pid }) => {
   const { user, loading } = useFetchUser();
 
   const [showID, setShowID] = useState('');
-  const resize = () => {
-    const sidebarDiv = document.getElementsByClassName(styles.side)[0];
-    const orgWidth: number = sidebarDiv
-      ? sidebarDiv.getBoundingClientRect().width
-      : 0;
-    console.log(orgWidth);
-  };
 
   const noteList = (notes: []) => {
+    console.log('----------');
+    console.log(notes);
+    console.log(user.sub);
+    console.log('----------');
     if (notes) {
       return notes.map((note) => (
         <div key={note['_id']}>
@@ -35,7 +32,6 @@ export default ({ notes, putNote, pid }) => {
             >
               {note['icon']}
             </div>
-
             {note['_id'] === pid ? (
               <p className={styles.selected}>
                 <Link href={`/note/${note['_id']}`}>
@@ -67,19 +63,19 @@ export default ({ notes, putNote, pid }) => {
   return (
     <div className={styles.component}>
       <div className={styles.side}>
-        <div className={styles.info}>
-          {user ? (
-            <>
+        {user ? (
+          <>
+            <div className={styles.info}>
               {console.log(user)}
               <img className={styles.pic} src={user.picture} alt="" />
               {`${user.given_name}'s notes`}
-            </>
-          ) : null}
-        </div>
-        <div className={styles.note}>
-          <p className={styles.listTitle}>My Notes</p>
-          {noteList(notes)}
-        </div>
+            </div>
+            <div className={styles.note}>
+              <p className={styles.listTitle}>My Notes</p>
+              {noteList(notes)}
+            </div>
+          </>
+        ) : null}
         <Link href="/note">
           <a>
             <div className={styles.new}>New Note</div>
