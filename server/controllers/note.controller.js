@@ -1,6 +1,7 @@
 import Note from '../models/note.model.js';
 import textify from './STT/index.stt.js';
 import multer from 'multer';
+import fs from 'fs';
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -16,11 +17,12 @@ const upload = multer({ storage: storage });
 const postNote = async (req, res) => {
   try {
     const audioFile = req.files.audio;
-    audioFile.mv('uploads/' + audioFile.name);
+    audioFile.mv(`uploads/${audioFile.name}`);
     const audio = audioFile.name;
     const text = await textify(audioFile.name);
     const newNote = await Note.create({ audio, text });
-    audioFile.mv('uploads/' + newNote._id);
+    audioFile.mv(`uploads/${newNote._id}.wav`);
+    fs.unlink(`uploads/${audioFile.name}`, () => {});
     res.send(newNote);
     res.status(201);
   } catch (error) {
@@ -68,6 +70,7 @@ const deleteNote = async (req, res) => {
     await Note.deleteOne({
       _id: id,
     });
+    fs.unlink(`uploads/${id}.wav`, () => {});
     res.sendStatus(204);
   } catch (error) {
     console.error(error);
