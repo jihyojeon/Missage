@@ -16,7 +16,8 @@
     "emoji-picker-react": "^3.4.8",
     "gestalt": "^40.0.6",
     "next": "12.0.3",
-    "react": "^17.0.2"
+    "react": "^17.0.2",
+    "react-dropzone": "^11.4.2"
   },
   "devDependencies": {
     "@types/node": "16.11.7",

@@ -23,6 +23,7 @@
 
 .trashcan {
   cursor: pointer;
+  font-size: 25px;
 }
 
 .trashcan:hover {

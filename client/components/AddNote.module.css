@@ -14,11 +14,21 @@
 
 .drag {
   height: 300px;
-  width: 300px;
+  width: 400px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.dragActive {
+  height: 300px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-style: dotted;
 }
 
 .icon {
@@ -35,7 +45,7 @@
 
 .record {
   height: 300px;
-  width: 300px;
+  width: 200px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -49,5 +59,4 @@
 .title {
   font-size: 20px;
   color: var(--main-black);
-  margin: 30px;
 }
