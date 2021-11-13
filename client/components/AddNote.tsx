@@ -7,6 +7,7 @@ import {
   faMicrophoneAlt,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Router from 'next/router';
 
 export default ({ postNote }) => {
   const [audio, setAudio] = useState(null);
@@ -25,7 +26,7 @@ export default ({ postNote }) => {
       const formData = new FormData();
       formData.append('audio', userAudio, userAudio.name);
       console.log(formData);
-      postNote(formData);
+      const newNote = await postNote(formData);
     }
   };
 

@@ -2,6 +2,7 @@ import styles from './Content.module.css';
 import React, { useState, useEffect, useRef } from 'react';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Router from 'next/router';
 
 let Picker;
 if (typeof window !== 'undefined') {
@@ -88,7 +89,10 @@ export default ({ notes, pid, putNote, editTitle, editText, deleteNote }) => {
           ) : null}
         </p>
         <FontAwesomeIcon
-          onClick={() => deleteNote(pid)}
+          onClick={() => {
+            deleteNote(pid);
+            Router.push(`/note/${notes[0]._id}`);
+          }}
           icon={faTrashAlt}
           className={styles.trashcan}
         ></FontAwesomeIcon>

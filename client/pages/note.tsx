@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react';
 import ApiService from './api/ApiService';
 import { redirect } from 'next/dist/server/api-utils';
 import { NextResponse, NextRequest } from 'next/server';
+import Router from 'next/router';
 
 export default () => {
   const [notes, setNotes] = useState([]);
@@ -21,7 +22,7 @@ export default () => {
   const postNote = (body) => {
     ApiService.postNote(body).then((note) => {
       setNotes([...notes, note]);
-      // NextResponse.redirect(`/note/${note._id}`);
+      Router.push(`/note/${note._id}`);
     });
   };
 
