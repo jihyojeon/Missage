@@ -17,12 +17,11 @@ const upload = multer({ storage: storage });
 const postNote = async (req, res) => {
   try {
     const audioFile = req.files.audio;
-    audioFile.mv(`uploads/${audioFile.name}`);
+    audioFile.mv('uploads/input.wav');
     const audio = audioFile.name;
-    const text = await textify(audioFile.name);
+    const text = await textify('input.wav');
     const newNote = await Note.create({ audio, text });
     audioFile.mv(`uploads/${newNote._id}.wav`);
-    fs.unlink(`uploads/${audioFile.name}`, () => {});
     res.send(newNote);
     res.status(201);
   } catch (error) {

@@ -12,7 +12,7 @@ if (typeof window !== 'undefined') {
 }
 
 export default ({ notes, pid, putNote, editTitle, editText, deleteNote }) => {
-  const note = notes.find((note: {}) => note._id === pid);
+  const note = notes.find((note: {}) => note['_id'] === pid);
 
   const [show, setShow] = useState(false);
 
@@ -47,7 +47,7 @@ export default ({ notes, pid, putNote, editTitle, editText, deleteNote }) => {
     setTitle(event.target.value);
   };
   const handleKeyDown = (event) => {
-    if ((event.key === 'Escape') | (event.key === 'Enter')) {
+    if (event.key === 'Escape' || event.key === 'Enter') {
       editTitle(title, pid);
       setEditableTitle(!editableTitle);
     }

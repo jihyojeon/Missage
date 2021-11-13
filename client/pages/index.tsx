@@ -1,15 +1,12 @@
-import type { NextPage } from 'next';
-import Head from 'next/head';
-import Image from 'next/image';
-import Link from 'next/link';
-import Navbar from '../components/Navbar';
+import React, { useEffect } from 'react';
+import Router from 'next/router';
 
-const Home: NextPage = () => {
-  return (
-    <div>
-      <Navbar></Navbar>
-    </div>
-  );
-};
-
-export default Home;
+export default function Index() {
+  useEffect(() => {
+    const { pathname } = Router;
+    if (pathname == '/') {
+      Router.push('/product');
+    }
+  });
+  return <p>Jihyo</p>;
+}

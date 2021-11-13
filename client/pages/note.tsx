@@ -5,8 +5,8 @@ import AddNote from '../components/AddNote';
 import styles from './note.module.css';
 import { useState, useEffect } from 'react';
 import ApiService from './api/ApiService';
-import { redirect } from 'next/dist/server/api-utils';
-import { NextResponse, NextRequest } from 'next/server';
+// import { redirect } from 'next/dist/server/api-utils';
+// import { NextResponse, NextRequest } from 'next/server';
 import Router from 'next/router';
 
 export default () => {
@@ -37,7 +37,7 @@ export default () => {
 
   return (
     <div className={styles.note}>
-      <Sidebar notes={notes} putNote={putNote}></Sidebar>
+      <Sidebar notes={notes} putNote={putNote} pid="0"></Sidebar>
       <AddNote postNote={postNote}></AddNote>
     </div>
   );

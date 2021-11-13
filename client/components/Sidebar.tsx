@@ -21,36 +21,36 @@ export default ({ notes, putNote, pid }) => {
   const noteList = (notes: []) => {
     if (notes) {
       return notes.map((note) => (
-        <div key={note._id}>
+        <div key={note['_id']}>
           <div className={styles.noteItem}>
             <div
               className={styles.icon}
               onClick={() => {
-                !showID ? setShowID(note._id) : setShowID('');
+                !showID ? setShowID(note['_id']) : setShowID('');
               }}
             >
-              {note.icon}
+              {note['icon']}
             </div>
 
-            {note._id === pid ? (
+            {note['_id'] === pid ? (
               <p className={styles.selected}>
-                <Link href={`/note/${note._id}`}>
-                  <a className={styles.title}>{note.title}</a>
+                <Link href={`/note/${note['_id']}`}>
+                  <a className={styles.title}>{note['title']}</a>
                 </Link>
               </p>
             ) : (
               <p className={styles.titleBox}>
-                <Link href={`/note/${note._id}`}>
-                  <a className={styles.title}>{note.title}</a>
+                <Link href={`/note/${note['_id']}`}>
+                  <a className={styles.title}>{note['title']}</a>
                 </Link>
               </p>
             )}
           </div>
-          {showID === note._id ? (
+          {showID === note['_id'] ? (
             <Picker
               className={styles.picker}
               onEmojiClick={(event, emojiObject) => {
-                putNote(emojiObject.emoji, note._id);
+                putNote(emojiObject.emoji, note['_id']);
                 setShowID('');
               }}
             />
