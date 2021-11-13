@@ -59,7 +59,7 @@ const Note = () => {
 
   return (
     <div className={styles.note}>
-      <Sidebar notes={notes} putNote={putNote}></Sidebar>
+      <Sidebar notes={notes} putNote={putNote} pid={pid}></Sidebar>
       <Content
         notes={notes}
         pid={pid}

@@ -78,6 +78,11 @@
   text-decoration: none;
 }
 
+.selected {
+  width: 100%;
+  background-color: var(--main-white);
+}
+
 .titleBox {
   width: 100%;
 }

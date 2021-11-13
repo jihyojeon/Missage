@@ -8,7 +8,7 @@ if (typeof window !== 'undefined') {
   });
 }
 
-export default ({ notes, putNote }) => {
+export default ({ notes, putNote, pid }) => {
   const [showID, setShowID] = useState('');
   const resize = () => {
     const sidebarDiv = document.getElementsByClassName(styles.side)[0];
@@ -31,11 +31,20 @@ export default ({ notes, putNote }) => {
             >
               {note.icon}
             </div>
-            <p className={styles.titleBox}>
-              <Link href={`/note/${note._id}`}>
-                <a className={styles.title}>{note.title}</a>
-              </Link>
-            </p>
+
+            {note._id === pid ? (
+              <p className={styles.selected}>
+                <Link href={`/note/${note._id}`}>
+                  <a className={styles.title}>{note.title}</a>
+                </Link>
+              </p>
+            ) : (
+              <p className={styles.titleBox}>
+                <Link href={`/note/${note._id}`}>
+                  <a className={styles.title}>{note.title}</a>
+                </Link>
+              </p>
+            )}
           </div>
           {showID === note._id ? (
             <Picker
@@ -64,7 +73,6 @@ export default ({ notes, putNote }) => {
             <div className={styles.new}>New Note</div>
           </a>
         </Link>
-        {/* https://www.npmjs.com/package/react-beautiful-dnd-next */}
       </div>
       <div className={styles.border}></div>
     </div>
