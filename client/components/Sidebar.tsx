@@ -16,10 +16,6 @@ export default ({ notes, putNote, pid }) => {
   const [showID, setShowID] = useState('');
 
   const noteList = (notes: []) => {
-    console.log('----------');
-    console.log(notes);
-    console.log(user.sub);
-    console.log('----------');
     if (notes) {
       return notes.map((note) => (
         <div key={note['_id']}>
@@ -66,7 +62,6 @@ export default ({ notes, putNote, pid }) => {
         {user ? (
           <>
             <div className={styles.info}>
-              {console.log(user)}
               <img className={styles.pic} src={user.picture} alt="" />
               {`${user.given_name}'s notes`}
             </div>

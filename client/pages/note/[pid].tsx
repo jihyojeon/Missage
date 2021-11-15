@@ -33,7 +33,6 @@ const Note = () => {
       setNotes((noteList) => {
         const noteToUpdate = noteList.find((note) => note._id === id);
         noteToUpdate.icon = updatedNote.icon;
-        console.log(updatedNote);
         return [...noteList];
       });
     });
@@ -50,7 +49,6 @@ const Note = () => {
       setNotes((noteList) => {
         const noteToUpdate = noteList.find((note) => note._id === id);
         noteToUpdate.title = updatedNote.title;
-        console.log({ updatedNote });
         return [...noteList];
       });
     });
@@ -61,7 +59,6 @@ const Note = () => {
       setNotes((noteList) => {
         const noteToUpdate = noteList.find((note) => note._id === id);
         noteToUpdate.text = updatedNote.text;
-        console.log(updatedNote);
         return [...noteList];
       });
     });
