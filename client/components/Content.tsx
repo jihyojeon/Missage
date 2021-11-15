@@ -13,6 +13,7 @@ if (typeof window !== 'undefined') {
 
 export default ({ notes, pid, putNote, editTitle, editText, deleteNote }) => {
   const note = notes.find((note: {}) => note['_id'] === pid);
+  console.log(note);
 
   const [show, setShow] = useState(false);
 
@@ -66,7 +67,7 @@ export default ({ notes, pid, putNote, editTitle, editText, deleteNote }) => {
     }
   };
 
-  function giveMeTime(timeStamp) {
+  const giveMeTime = (timeStamp) => {
     const timeUnits = [
       ['day', 1000 * 60 * 60 * 24],
       ['hour', 1000 * 60 * 60],
@@ -85,7 +86,17 @@ export default ({ notes, pid, putNote, editTitle, editText, deleteNote }) => {
         return <p className={styles.time}>{`${amount} ${key}${plural} ago`}</p>;
       }
     }
-  }
+    return <p className={styles.time}>{`now`}</p>;
+  };
+
+  const audiobox = () => {
+    if (note) {
+      const blob = new Blob([note.audio.data], { type: 'audio/wav' });
+      const blobUrl = URL.createObjectURL(blob);
+      console.log(blobUrl);
+      return <audio src={blobUrl} controls />;
+    }
+  };
 
   return (
     <div className={styles.component}>
@@ -133,7 +144,7 @@ export default ({ notes, pid, putNote, editTitle, editText, deleteNote }) => {
           </div>
         )}
         <div className={styles.extraInfo}>
-          {`audio i guess`}
+          {audiobox()}
           {giveMeTime(note?.createdAt)}
         </div>
       </p>

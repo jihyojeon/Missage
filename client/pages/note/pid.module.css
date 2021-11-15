@@ -1,6 +1,6 @@
 .note {
   display: flex;
-
+  height: 100vh;
   background-image: url(../../styles/blurry-gradient-haikei.svg);
   background-position: center center;
   background-size: cover;
@@ -8,4 +8,18 @@
   background-attachment: fixed;
   background-origin: padding-box;
   background-clip: border-box;
+}
+
+/** For tablet devices **/
+@media (min-width: 768px) and (max-width: 1023px) {
+  .note {
+    flex-direction: column;
+  }
+}
+
+/** For mobile devices **/
+@media (max-width: 767px) {
+  .note {
+    flex-direction: column;
+  }
 }

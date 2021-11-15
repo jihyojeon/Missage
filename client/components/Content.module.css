@@ -1,6 +1,32 @@
 .component {
-  width: 100%;
-  padding: 50px;
+  padding: 50px 150px 50px 150px;
+}
+
+/* small desktop */
+@media (min-width: 1024px) and (max-width: 1300px) {
+  .component {
+    padding: 50px 70px 50px 70px;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+/** For tablet devices **/
+@media (min-width: 768px) and (max-width: 1023px) {
+  .component {
+    padding: 50px 60px 50px 60px;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+/** For mobile devices **/
+@media (max-width: 767px) {
+  .component {
+    padding: 50px 30px 50px 30px;
+    height: 100%;
+    width: 100%;
+  }
 }
 
 .iconBar {
@@ -41,6 +67,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
 .titleInput {
@@ -63,7 +90,8 @@
   background-color: var(--main-white);
   border-radius: 10px;
   padding: 50px;
-  height: 70vh;
+  height: 63vh;
+  width: 100%;
 }
 
 .textInput {
@@ -75,7 +103,7 @@
   opacity: 70%;
   border-radius: 10px;
   width: 100%;
-  height: 70vh;
+  height: 63vh;
   text-align: start;
 }
 

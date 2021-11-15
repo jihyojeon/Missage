@@ -5,7 +5,7 @@ const noteSchema = new Schema({
   title: { type: String, default: 'Untitled' },
   icon: { type: String, default: '📜' },
   audio: {
-    type: String,
+    type: Object,
     required: true,
   },
   text: { type: String, default: 'empty' },

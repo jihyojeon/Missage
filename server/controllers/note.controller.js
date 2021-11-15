@@ -6,15 +6,15 @@ const postNote = async (req, res) => {
   try {
     const audioFile = req.files.audio;
     const userID = req.body.userID;
-    const audio = audioFile.name;
-    audioFile.mv(`uploads/${audio}.wav`, async () => {
-      const text = await textify(`${audio}.wav`);
+    const audio = req.files.audio;
+    console.log(audio);
+    audioFile.mv(`uploads/test.wav`, async () => {
+      const text = await textify(`test.wav`);
       const newNote = await Note.create({ audio, text, userID });
-      console.log(newNote);
       audioFile.mv(`uploads/${newNote._id}.wav`);
       res.send(newNote);
       res.status(201);
-      fs.unlink(`uploads/${audio}.wav`, () => {});
+      fs.unlink(`uploads/test.wav`, () => {});
     });
   } catch (error) {
     console.error(error);

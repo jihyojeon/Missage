@@ -19,7 +19,7 @@ export default ({ notes, putNote, pid }) => {
     if (notes) {
       return notes.map((note) => (
         <div key={note['_id']}>
-          <div className={styles.noteItem}>
+          <div className={!showmenu ? styles.noteItem : styles.mobileItem}>
             <div
               className={styles.icon}
               onClick={() => {
@@ -57,28 +57,34 @@ export default ({ notes, putNote, pid }) => {
     }
   };
 
+  const [showmenu, setShowMenu] = useState(false);
+
+  const openList = () => {
+    setShowMenu(!showmenu);
+    console.log(showmenu);
+  };
+
   return (
-    <div className={styles.component}>
-      <div className={styles.side}>
-        {user ? (
-          <>
-            <div className={styles.info}>
-              <img className={styles.pic} src={user.picture} alt="" />
-              {`${user.given_name}'s notes`}
-            </div>
-            <div className={styles.note}>
-              <p className={styles.listTitle}>My Notes</p>
-              {noteList(notes)}
-            </div>
-          </>
-        ) : null}
-        <Link href="/note">
-          <a>
-            <div className={styles.new}>New Note</div>
-          </a>
-        </Link>
-      </div>
-      <div className={styles.border}></div>
+    <div className={styles.side}>
+      {user ? (
+        <>
+          <div className={styles.info}>
+            <img className={styles.pic} src={user.picture} alt="" />
+            {`${user.given_name}'s notes`}
+          </div>
+          <div className={styles.note}>
+            <button onClick={openList} className={styles.listTitle}>
+              My Notes
+            </button>
+            {noteList(notes)}
+          </div>
+        </>
+      ) : null}
+      <Link href="/note">
+        <a>
+          <div className={styles.new}>New Note</div>
+        </a>
+      </Link>
     </div>
   );
 };
