@@ -29,11 +29,11 @@ export default ({ notes, pid, putNote, editTitle, editText, deleteNote }) => {
   });
 
   const handleClickOutside = (e) => {
-    if (titleref && editableTitle && !titleref.current.contains(e.target))
+    if (titleref && editableTitle && !titleref.current?.contains(e.target))
       setEditableTitle(false);
-    if (textref && editableText && !textref.current.contains(e.target))
+    if (textref && editableText && !textref.current?.contains(e.target))
       setEditableText(false);
-    if (iconref && show && !iconref.current.contains(e.target)) {
+    if (iconref && show && !iconref.current?.contains(e.target)) {
       setShow(false);
     }
   };
@@ -72,14 +72,11 @@ export default ({ notes, pid, putNote, editTitle, editText, deleteNote }) => {
       ['hour', 1000 * 60 * 60],
       ['min', 1000 * 60],
     ];
-    console.log(timeStamp);
     const deltaTime = Date.now() - new Date(timeStamp).getTime();
-    console.log(deltaTime);
     for (let set of timeUnits) {
       let key = set[0];
       let value = set[1];
       let amount = Math.floor(deltaTime / Number(value));
-      console.log(amount);
       if (amount >= 1) {
         let plural = amount > 1 ? 's' : '';
         if (key === 'day' && amount >= 2) {
@@ -131,16 +128,14 @@ export default ({ notes, pid, putNote, editTitle, editText, deleteNote }) => {
             onKeyDown={handleKeyDown}
           />
         ) : (
-          <>
-            <div className={styles.noteTitle} onClick={() => editOn()}>
-              {note?.title}
-            </div>
-            <div className={styles.extraInfo}>
-              {`audio i guess`}
-              {giveMeTime(note?.createdAt)}
-            </div>
-          </>
+          <div className={styles.noteTitle} onClick={() => editOn()}>
+            {note?.title}
+          </div>
         )}
+        <div className={styles.extraInfo}>
+          {`audio i guess`}
+          {giveMeTime(note?.createdAt)}
+        </div>
       </p>
       <p ref={textref}>
         {editableText ? (

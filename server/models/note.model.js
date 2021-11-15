@@ -11,6 +11,7 @@ const noteSchema = new Schema({
   text: { type: String, default: 'empty' },
   createdAt: { type: Date, default: Date.now },
   userID: { type: String, default: 'Anonymous' },
+  lastModified: { type: Date, default: null },
 });
 
 const Model = model('Note', noteSchema);
