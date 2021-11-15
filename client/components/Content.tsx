@@ -66,6 +66,30 @@ export default ({ notes, pid, putNote, editTitle, editText, deleteNote }) => {
     }
   };
 
+  function giveMeTime(timeStamp) {
+    const timeUnits = [
+      ['day', 1000 * 60 * 60 * 24],
+      ['hour', 1000 * 60 * 60],
+      ['min', 1000 * 60],
+    ];
+    console.log(timeStamp);
+    const deltaTime = Date.now() - new Date(timeStamp).getTime();
+    console.log(deltaTime);
+    for (let set of timeUnits) {
+      let key = set[0];
+      let value = set[1];
+      let amount = Math.floor(deltaTime / Number(value));
+      console.log(amount);
+      if (amount >= 1) {
+        let plural = amount > 1 ? 's' : '';
+        if (key === 'day' && amount >= 2) {
+          return <p className={styles.time}>{timeStamp}</p>;
+        }
+        return <p className={styles.time}>{`${amount} ${key}${plural} ago`}</p>;
+      }
+    }
+  }
+
   return (
     <div className={styles.component}>
       <div className={styles.iconBar}>
@@ -107,9 +131,15 @@ export default ({ notes, pid, putNote, editTitle, editText, deleteNote }) => {
             onKeyDown={handleKeyDown}
           />
         ) : (
-          <div className={styles.noteTitle} onClick={() => editOn()}>
-            {note?.title}
-          </div>
+          <>
+            <div className={styles.noteTitle} onClick={() => editOn()}>
+              {note?.title}
+            </div>
+            <div className={styles.extraInfo}>
+              {`audio i guess`}
+              {giveMeTime(note?.createdAt)}
+            </div>
+          </>
         )}
       </p>
       <p ref={textref}>
