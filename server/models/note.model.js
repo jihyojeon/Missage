@@ -8,7 +8,7 @@ const noteSchema = new Schema({
     type: String,
     required: true,
   },
-  text: { type: String, required: true },
+  text: { type: String, default: 'empty' },
   createdAt: { type: Date, default: Date.now },
   userID: { type: String, default: 'Anonymous' },
 });

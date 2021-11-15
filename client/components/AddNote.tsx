@@ -4,10 +4,14 @@ import { useState, useCallback } from 'react';
 import {
   faFileUpload,
   faMicrophoneAlt,
-  faRecordVinyl,
+  faStopCircle,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useDropzone } from 'react-dropzone';
+import {
+  ReactMediaRecorder,
+  useReactMediaRecorder,
+} from 'react-media-recorder';
 
 export default ({ postNote, userid }) => {
   const send = async (userAudio: File) => {
@@ -15,10 +19,11 @@ export default ({ postNote, userid }) => {
       const formData = new FormData();
       formData.append('audio', userAudio, userAudio.name);
       formData.append('userID', userid);
-      const newNote = await postNote(formData);
+      await postNote(formData);
     }
   };
 
+  // Upload by Drag and Drop
   const onDrop = useCallback((acceptedFiles) => {
     console.log(acceptedFiles);
     send(acceptedFiles[0]);
@@ -26,12 +31,19 @@ export default ({ postNote, userid }) => {
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
 
-  const record = async () => {
-    navigator.mediaDevices.getUserMedia({ audio: true }).then(() => {
-      console.log('test');
+  // Upload by Record
+  const { status, startRecording, stopRecording, mediaBlobUrl } =
+    useReactMediaRecorder({
+      ...{ audio: true },
+      askPermissionOnMount: true,
+      onStop: (blobUrl, blob) => {
+        console.info(blobUrl, blob);
+        const userAudio = new File([blob], 'User_Recorded.wav');
+        send(userAudio);
+      },
     });
-  };
 
+  // ------------------------------------------------------------------------------
   return (
     <div className={styles.options}>
       {isDragActive ? (
@@ -55,13 +67,19 @@ export default ({ postNote, userid }) => {
       )}
       <div className={styles.record}>
         <p className={styles.title}>Record</p>
-        <FontAwesomeIcon
-          onClick={() => {
-            record();
-          }}
-          icon={faMicrophoneAlt}
-          className={styles.icon}
-        ></FontAwesomeIcon>
+        {status === 'recording' ? (
+          <FontAwesomeIcon
+            onClick={stopRecording}
+            icon={faStopCircle}
+            className={styles.icon}
+          ></FontAwesomeIcon>
+        ) : (
+          <FontAwesomeIcon
+            onClick={startRecording}
+            icon={faMicrophoneAlt}
+            className={styles.icon}
+          ></FontAwesomeIcon>
+        )}
       </div>
     </div>
   );
