@@ -34,7 +34,6 @@ export default ({ notes, pid, putNote, editTitle, editText, deleteNote }) => {
     if (textref && editableText && !textref.current.contains(e.target))
       setEditableText(false);
     if (iconref && show && !iconref.current.contains(e.target)) {
-      console.log('test');
       setShow(false);
     }
   };
@@ -80,7 +79,7 @@ export default ({ notes, pid, putNote, editTitle, editText, deleteNote }) => {
           </div>
           {show ? (
             <Picker
-              className={styles.picker}
+              pickerStyle={{ position: 'absolute' }}
               onEmojiClick={(event, emojiObject) => {
                 putNote(emojiObject.emoji, pid);
                 setShow(false);

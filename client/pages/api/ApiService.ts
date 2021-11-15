@@ -3,8 +3,6 @@ const BASE_URL: string = 'http://localhost:3001';
 async function fetchRequest(path: string, options?: object) {
   try {
     const res = await fetch(BASE_URL + path, options);
-    // const res_1 = res.status < 400 ? res : Promise.reject();
-    // return res_1.status !== 204 ? res_1.json() : res_1;
     return res.json();
   } catch (err) {
     console.error('Error: ', err);

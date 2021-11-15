@@ -10,6 +10,7 @@ const postNote = async (req, res) => {
     audioFile.mv(`uploads/${audio}.wav`, async () => {
       const text = await textify(`${audio}.wav`);
       const newNote = await Note.create({ audio, text, userID });
+      console.log(newNote);
       audioFile.mv(`uploads/${newNote._id}.wav`);
       res.send(newNote);
       res.status(201);

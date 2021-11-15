@@ -38,7 +38,10 @@ export default ({ postNote, userid }) => {
       askPermissionOnMount: true,
       onStop: (blobUrl, blob) => {
         console.info(blobUrl, blob);
-        const userAudio = new File([blob], 'User_Recorded.wav');
+        const userAudio = new File([blob], 'User_Recorded.wav', {
+          type: 'audio/wav',
+        });
+        console.log(mediaBlobUrl);
         send(userAudio);
       },
     });
@@ -46,40 +49,25 @@ export default ({ postNote, userid }) => {
   // ------------------------------------------------------------------------------
   return (
     <div className={styles.options}>
-      {isDragActive ? (
-        <div {...getRootProps()} className={styles.dragActive}>
-          <p className={styles.title}>Drag and Drop</p>
-          <input {...getInputProps()} type="file" className={styles.file} />
-          <FontAwesomeIcon
-            icon={faFileUpload}
-            className={styles.icon}
-          ></FontAwesomeIcon>
-        </div>
-      ) : (
-        <div {...getRootProps()} className={styles.drag}>
-          <p className={styles.title}>Drag and Drop</p>
-          <input {...getInputProps()} type="file" className={styles.file} />
-          <FontAwesomeIcon
-            icon={faFileUpload}
-            className={styles.icon}
-          ></FontAwesomeIcon>
-        </div>
-      )}
+      <div
+        {...getRootProps()}
+        className={isDragActive ? styles.dragActive : styles.drag}
+      >
+        <p className={styles.title}>Drag and Drop</p>
+        <input {...getInputProps()} type="file" className={styles.file} />
+        <FontAwesomeIcon
+          icon={faFileUpload}
+          className={styles.icon}
+        ></FontAwesomeIcon>
+      </div>
       <div className={styles.record}>
         <p className={styles.title}>Record</p>
-        {status === 'recording' ? (
-          <FontAwesomeIcon
-            onClick={stopRecording}
-            icon={faStopCircle}
-            className={styles.icon}
-          ></FontAwesomeIcon>
-        ) : (
-          <FontAwesomeIcon
-            onClick={startRecording}
-            icon={faMicrophoneAlt}
-            className={styles.icon}
-          ></FontAwesomeIcon>
-        )}
+        <FontAwesomeIcon
+          onClick={status === 'recording' ? stopRecording : startRecording}
+          icon={status === 'recording' ? faStopCircle : faMicrophoneAlt}
+          className={styles.icon}
+        ></FontAwesomeIcon>
+        {mediaBlobUrl ? <audio src={mediaBlobUrl} controls autoPlay /> : null}
       </div>
     </div>
   );

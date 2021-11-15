@@ -1,26 +1,16 @@
 import { SpeechClient } from '@google-cloud/speech';
 import fs from 'fs';
-import ffmpeg from 'fluent-ffmpeg';
-import { exec } from 'child_process';
 
 export default async (input) => {
   const timestamp = false;
   const keyFilename = 'controllers/STT/missage-38c481f53476.json';
   const client = new SpeechClient({ keyFilename });
-  const filename = `/Users/jihyojeon/Documents/Codeworks/Senior/Solo/Missage/server/uploads/${input}`;
+  let filename = `/Users/jihyojeon/Documents/Codeworks/Senior/Solo/Missage/server/uploads/${input}`;
 
-  const encoding = 'LINEAR16';
-  // 16000 | 44100 | 48000
-  let sampleRateHertz = 44100;
-  if (input === 'User_Recorded.wav.wav') {
-    sampleRateHertz = 48000;
-  }
   const languageCode = 'en-US';
 
   const config = {
     enableWordTimeOffsets: true,
-    encoding: encoding,
-    sampleRateHertz: sampleRateHertz,
     languageCode: languageCode,
   };
 
@@ -60,6 +50,5 @@ export default async (input) => {
     }
   });
 
-  console.log(sttOutput.transcript);
   return sttOutput.transcript;
 };

@@ -44,6 +44,7 @@ export default ({ notes, putNote, pid }) => {
           </div>
           {showID === note['_id'] ? (
             <Picker
+              pickerStyle={{ position: 'absolute' }}
               className={styles.picker}
               onEmojiClick={(event, emojiObject) => {
                 putNote(emojiObject.emoji, note['_id']);
