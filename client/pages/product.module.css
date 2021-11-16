@@ -10,6 +10,51 @@
   background-clip: border-box;
 }
 
+/* Main Page */
+.titleimg {
+  width: 360px;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 120px;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+.l {
+  font-size: 50px;
+  padding-top: 30px;
+  margin: 0;
+}
+
+.m {
+  margin-top: 30px;
+  font-size: 20px;
+}
+
+.try {
+  text-align: center;
+  padding: 10px;
+  text-decoration: none;
+  color: var(--main-white);
+  background-color: var(--main-purple);
+  width: 200px;
+}
+
+.try:hover {
+  transition: 0.4s;
+  color: var(--main-black);
+  background-color: var(--main-white);
+}
+
+/* Background */
+
 .wave {
   position: absolute;
   /* bottom */

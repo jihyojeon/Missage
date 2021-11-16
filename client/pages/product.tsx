@@ -6,6 +6,25 @@ const Named = () => {
   return (
     <div className={styles.page}>
       <Navbar></Navbar>
+      <div className={styles.title}>
+        <div className={styles.col}>
+          <p className={styles.l}>Don't Miss A Word!</p>
+          <p className={styles.m}>
+            An assistant in your hand who improved your work ability and quality
+            of life! Finally, Your AI recording record manager is here.
+          </p>
+          <div className={styles.try}>
+            <Link href="/api/login">
+              <a className={styles.try}>Try Missage Free</a>
+            </Link>
+          </div>
+        </div>
+        <img
+          className={styles.titleimg}
+          src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F0cdd6d87-f37f-460f-bd88-b6034206a853%2Fdocs.png?table=block&id=d09e70d6-a625-46ab-9fb0-8d3c204bf711&spaceId=d6c7f512-633e-4709-ac5f-bc0979392ab1&width=2000&userId=862b32cc-9b45-426d-b64b-9590ffe306bf&cache=v2"
+          alt=""
+        />
+      </div>
       <div className={styles.wave}>
         <svg
           data-name="Layer 1"

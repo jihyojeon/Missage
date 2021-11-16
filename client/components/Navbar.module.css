@@ -1,8 +1,20 @@
 .navbar {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 30px 50px 30px 50px;
   position: sticky;
+}
+
+.logo {
+  width: 100px;
+  padding: 0;
+  margin: 0;
+}
+
+.logo:hover {
+  background-color: var(--main-gray);
+  transition: 0.4s;
 }
 
 .menu {
@@ -14,7 +26,8 @@
 }
 
 .menu a {
-  padding-left: 30px;
+  color: var(--main-black);
+  padding-right: 30px;
   font-size: 17px;
   text-decoration: none;
 }
@@ -32,17 +45,18 @@
 .auth {
   display: flex;
   justify-content: space-around;
-  /* width: 100px; */
 }
 
-.auth button {
-  border-color: transparent;
-  border-radius: 10px;
-  height: 24px;
-  cursor: pointer;
+.auth a {
+  color: var(--main-black);
+  padding-right: 30px;
+  font-size: 17px;
+  text-decoration: none;
+}
+
+.auth a:hover {
+  transition: 0.4s;
   color: var(--main-white);
-  background-color: var(--main-purple);
-  margin-left: 30px;
 }
 
 /** For tablet devices **/
