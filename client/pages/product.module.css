@@ -61,6 +61,7 @@
 }
 
 .features {
+  padding: 100px;
   margin-top: 30px;
   display: flex;
   flex-direction: column;
@@ -73,7 +74,7 @@
   align-items: center;
   padding-left: 50px;
   padding-right: 50px;
-  width: 770px;
+  width: 830px;
 }
 .content {
   padding-left: 50px;
@@ -81,6 +82,7 @@
 .featureImg {
   width: 250px;
   margin-right: 50px;
+  margin-top: 30px;
 }
 .featureTitle {
   font-size: 20px;
@@ -109,7 +111,7 @@
 }
 
 .goals {
-  padding: 50px;
+  padding: 100px;
   /* margin-top: */
   background-image: url(../styles/blurry-gradient-haikei.svg);
   background-position: center center;
@@ -134,9 +136,15 @@
   margin: 0;
   background-color: var(--main-gray);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 300px;
+  height: 500px;
+}
+
+.logo {
+  width: 200px;
+  padding: 30px;
 }
 
 /** For tablet devices **/
