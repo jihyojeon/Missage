@@ -1,6 +1,6 @@
 .component {
   padding: 50px 150px 50px 150px;
-  position: relative;
+  /* position: relative; */
 }
 
 /* small desktop */
@@ -34,7 +34,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: relative;
+  /* position: relative; */
 }
 
 .noteIcon {
@@ -42,6 +42,7 @@
   font-size: 50px;
   cursor: pointer;
   margin: 0;
+  z-index: 2;
 }
 
 .noteIcon:hover {
@@ -117,14 +118,14 @@
 .extraInfo {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-top: 15px;
 }
 
 .audio {
   backface-visibility: 'hidden';
-  position: relative;
-  z-index: 2;
   width: 80%;
+  height: 30px;
   border: transparent;
   background-color: transparent;
 }
