@@ -8,3 +8,10 @@
   background-origin: padding-box;
   background-clip: border-box;
 }
+
+@media (max-width: 1023px) {
+  .note {
+    flex-direction: column;
+    height: 100vh;
+  }
+}

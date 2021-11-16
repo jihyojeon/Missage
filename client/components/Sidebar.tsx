@@ -19,7 +19,15 @@ const Named = ({ notes, putNote, pid }) => {
     if (notes) {
       return notes.map((note) => (
         <div key={note['_id']}>
-          <div className={!showmenu ? styles.noteItem : styles.mobileItem}>
+          <div
+            className={
+              !showmenu
+                ? note['_id'] === pid
+                  ? styles.selected
+                  : styles.titleBox
+                : styles.mobileItem
+            }
+          >
             <div
               className={styles.icon}
               onClick={() => {
@@ -28,19 +36,9 @@ const Named = ({ notes, putNote, pid }) => {
             >
               {note['icon']}
             </div>
-            {note['_id'] === pid ? (
-              <p className={styles.selected}>
-                <Link href={`/note/${note['_id']}`}>
-                  <a className={styles.title}>{note['title']}</a>
-                </Link>
-              </p>
-            ) : (
-              <p className={styles.titleBox}>
-                <Link href={`/note/${note['_id']}`}>
-                  <a className={styles.title}>{note['title']}</a>
-                </Link>
-              </p>
-            )}
+            <Link href={`/note/${note['_id']}`}>
+              <a className={styles.title}>{note['title']}</a>
+            </Link>
           </div>
           {showID === note['_id'] ? (
             <Picker
@@ -81,8 +79,8 @@ const Named = ({ notes, putNote, pid }) => {
         </>
       ) : null}
       <Link href="/note">
-        <a>
-          <div className={styles.new}>New Note</div>
+        <a className={styles.new}>
+          <div>New Note</div>
         </a>
       </Link>
     </div>
