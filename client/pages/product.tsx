@@ -1,10 +1,21 @@
 import Link from 'next/link';
+import Head from 'next/head';
 import Navbar from '../components/Navbar';
 import styles from './product.module.css';
 
 const Named = () => {
   return (
     <div>
+      <Head>
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge,chrome" />
+        <meta
+          name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
+        />
+        <meta name="description" content="Description" />
+        <meta name="keywords" content="Keywords" />
+        <title>Missage</title>
+      </Head>
       <div className={styles.page}>
         <Navbar></Navbar>
         <div className={styles.title}>
