@@ -1,5 +1,6 @@
 .component {
   padding: 50px 150px 50px 150px;
+  position: relative;
 }
 
 /* small desktop */
@@ -33,6 +34,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 
 .noteIcon {
@@ -68,6 +70,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
+  position: relative;
 }
 
 .titleInput {
@@ -114,4 +117,14 @@
 .extraInfo {
   display: flex;
   justify-content: space-between;
+  margin-top: 15px;
+}
+
+.audio {
+  backface-visibility: 'hidden';
+  position: relative;
+  z-index: 2;
+  width: 80%;
+  border: transparent;
+  background-color: transparent;
 }

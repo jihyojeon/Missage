@@ -91,14 +91,17 @@ const Named = ({ notes, pid, putNote, editTitle, editText, deleteNote }) => {
 
   const audiobox = () => {
     if (note) {
-      console.log(note.audio);
-      const blob = new Blob([note.audio.data], {
+      const data = window.atob(note.audio.data);
+      const dataLength = data.length;
+      let array = new Uint8Array(new ArrayBuffer(dataLength));
+      for (let i = 0; i < dataLength; i++) {
+        array[i] = data.charCodeAt(i);
+      }
+      const blob = new Blob([array], {
         type: note.audio.mimetype,
       });
-      console.log(blob);
       const blobUrl = URL.createObjectURL(blob);
-      console.log(blobUrl);
-      return <audio src={note.audio.name} controls />;
+      return <audio className={styles.audio} src={blobUrl} controls />;
     }
   };
 
@@ -115,7 +118,10 @@ const Named = ({ notes, pid, putNote, editTitle, editText, deleteNote }) => {
           </div>
           {show ? (
             <Picker
-              pickerStyle={{ position: 'absolute' }}
+              pickerStyle={{
+                zindex: 10,
+                position: 'absolute',
+              }}
               onEmojiClick={(event, emojiObject) => {
                 putNote(emojiObject.emoji, pid);
                 setShow(false);
@@ -148,7 +154,7 @@ const Named = ({ notes, pid, putNote, editTitle, editText, deleteNote }) => {
           </div>
         )}
         <div className={styles.extraInfo}>
-          {/* {audiobox()} */}
+          {audiobox()}
           {giveMeTime(note?.createdAt)}
         </div>
       </p>
