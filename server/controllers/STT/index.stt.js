@@ -12,6 +12,7 @@ export default async (input) => {
   const config = {
     enableWordTimeOffsets: true,
     languageCode: languageCode,
+    alternativeLanguageCodes: [languageCode, 'ko-KR'],
   };
 
   const audio = {

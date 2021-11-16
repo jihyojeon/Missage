@@ -11,5 +11,5 @@ export default function Index() {
       user ? Router.push('/note') : Router.push('/product');
     }
   });
-  return <p>Jihyo</p>;
+  return <div className="main"></div>;
 }

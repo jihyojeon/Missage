@@ -5,6 +5,18 @@
   --main-white: #ffffff;
 }
 
+.main {
+  min-height: 100vh;
+  background-image: url(./blurry-gradient-haikei.svg);
+  /* bottom */
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-origin: padding-box;
+  background-clip: border-box;
+}
+
 @import '~antd/dist/antd.css';
 
 @font-face {
