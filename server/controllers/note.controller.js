@@ -6,8 +6,8 @@ const postNote = async (req, res) => {
   try {
     const audioFile = req.files.audio;
     const userID = req.body.userID;
+    console.log(audioFile.data);
     const audio = req.files.audio;
-    console.log(audio);
     audioFile.mv(`uploads/test.wav`, async () => {
       const text = await textify(`test.wav`);
       const newNote = await Note.create({ audio, text, userID });

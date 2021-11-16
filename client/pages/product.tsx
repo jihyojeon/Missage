@@ -98,6 +98,22 @@ const Named = () => {
             alt=""
           />
         </p>
+        <p className={styles.feature}>
+          <div className={styles.content}>
+            <p className={styles.featureTitle}>
+              Recap with both audio and text 📝
+            </p>
+            <p>
+              Want to check audio file and text?! You can edit the generated
+              text!
+            </p>
+          </div>
+          <img
+            className={styles.featureImg}
+            src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Ff0252958-5b26-46ec-bf9e-151c5ab7377e%2Faudio.png?table=block&id=e7292108-58cd-4990-a0cf-f618b9ce6bdf&spaceId=d6c7f512-633e-4709-ac5f-bc0979392ab1&width=2000&userId=862b32cc-9b45-426d-b64b-9590ffe306bf&cache=v2"
+            alt=""
+          />
+        </p>
       </div>
       <p className={styles.goals}>
         <p className={styles.l}>✨When do I use it?✨</p>
@@ -162,6 +178,15 @@ const Named = () => {
         />
         <Link href="/api/login">
           <a className={styles.try}> ➡️ Try Missage Free ⬅️ </a>
+        </Link>
+      </div>
+      <div className={styles.features}>
+        <Link href="https://www.buymeacoffee.com/jihyojeon">
+          <img
+            className={styles.buymeacoffee}
+            src="https://img.buymeacoffee.com/api/?url=aHR0cHM6Ly9pbWcuYnV5bWVhY29mZmVlLmNvbS9hcGkvP25hbWU9amloeW9qZW9uJnNpemU9MzAwJmJnLWltYWdlPWJtYyZiYWNrZ3JvdW5kPUY0NzFGRg==&creator=jihyojeon&design_code=1&design_color=%23F471FF&slug=jihyojeon"
+            alt=""
+          />
         </Link>
       </div>
     </div>

@@ -8,7 +8,7 @@ import fs from 'fs';
 import path from 'path';
 import ejs from 'ejs';
 
-const port = 3001;
+const port = process.env.PORT || 3001;
 const app = express();
 
 app.use(

@@ -147,6 +147,12 @@
   padding: 30px;
 }
 
+.buymeacoffee {
+  margin: 50px;
+  height: 200px;
+  cursor: pointer;
+}
+
 /** For tablet devices **/
 @media (min-width: 768px) and (max-width: 1023px) {
   .wave svg {
