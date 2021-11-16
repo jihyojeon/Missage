@@ -4,26 +4,29 @@ import styles from './product.module.css';
 
 const Named = () => {
   return (
-    <div className={styles.page}>
-      <Navbar></Navbar>
-      <div className={styles.title}>
-        <div className={styles.col}>
-          <p className={styles.l}>Don't Miss A Word!</p>
-          <p className={styles.m}>
-            An assistant in your hand who improved your work ability and quality
-            of life! Finally, Your AI recording record manager is here.
-          </p>
-          <div className={styles.try}>
-            <Link href="/api/login">
-              <a className={styles.try}>Try Missage Free</a>
-            </Link>
+    <div>
+      <div className={styles.page}>
+        <Navbar></Navbar>
+        <div className={styles.title}>
+          <div className={styles.col}>
+            <p className={styles.xl}>Don't Miss A Word!🤞</p>
+            <p className={styles.m}>
+              An assistant in your hand who improved your work ability and
+              quality of life! Finally, Your AI recording record manager is
+              here. 🚀
+            </p>
+            <div>
+              <Link href="/api/login">
+                <a className={styles.try}> ➡️ Try Missage Free ⬅️ </a>
+              </Link>
+            </div>
           </div>
+          <img
+            className={styles.titleimg}
+            src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F0cdd6d87-f37f-460f-bd88-b6034206a853%2Fdocs.png?table=block&id=d09e70d6-a625-46ab-9fb0-8d3c204bf711&spaceId=d6c7f512-633e-4709-ac5f-bc0979392ab1&width=2000&userId=862b32cc-9b45-426d-b64b-9590ffe306bf&cache=v2"
+            alt=""
+          />
         </div>
-        <img
-          className={styles.titleimg}
-          src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F0cdd6d87-f37f-460f-bd88-b6034206a853%2Fdocs.png?table=block&id=d09e70d6-a625-46ab-9fb0-8d3c204bf711&spaceId=d6c7f512-633e-4709-ac5f-bc0979392ab1&width=2000&userId=862b32cc-9b45-426d-b64b-9590ffe306bf&cache=v2"
-          alt=""
-        />
       </div>
       <div className={styles.wave}>
         <svg
@@ -38,6 +41,110 @@ const Named = () => {
             className="shape-fill"
           ></path>
         </svg>
+      </div>
+      <div className={styles.features}>
+        <p className={styles.l}>✨See what can you do✨</p>
+        <p className={styles.feature}>
+          <div className={styles.content}>
+            <p className={styles.featureTitle}>
+              Make a note from your own audio 🎤
+            </p>
+            <p>
+              You can use your recorded audio, or also can record it directly!
+            </p>
+          </div>
+          <img
+            className={styles.featureImg}
+            src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F8863ec15-769d-437a-a0e2-170936b0e586%2Fadd_files.png?table=block&id=d9a40983-862a-493e-b122-25cef5500026&spaceId=d6c7f512-633e-4709-ac5f-bc0979392ab1&width=2000&userId=862b32cc-9b45-426d-b64b-9590ffe306bf&cache=v2"
+            alt=""
+          />
+        </p>
+        <p className={styles.feature}>
+          <div className={styles.content}>
+            <p className={styles.featureTitle}>
+              Easy login with your google account 🍰
+            </p>
+            <p>I hate forms, just click your google ID and done!</p>
+          </div>
+          <img
+            className={styles.featureImg}
+            src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F469e7dd4-ff57-4c32-b2db-ccdb3b52f299%2Fuser.png?table=block&id=13072b46-4e4f-4b8b-a0f2-b87308154525&spaceId=d6c7f512-633e-4709-ac5f-bc0979392ab1&width=2000&userId=862b32cc-9b45-426d-b64b-9590ffe306bf&cache=v2"
+            alt=""
+          />
+        </p>
+        <p className={styles.feature}>
+          <div className={styles.content}>
+            <p className={styles.featureTitle}>
+              Label your notes with cute emogi 💗
+            </p>
+            <p>
+              Labelling with colorful emoji helps to you read your note list.
+            </p>
+          </div>
+          <img
+            className={styles.featureImg}
+            src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F0048cbb3-a790-4206-af5d-3624715906a6%2Fheart.png?table=block&id=4d76d2f5-11db-477e-a379-8a9c86849050&spaceId=d6c7f512-633e-4709-ac5f-bc0979392ab1&width=2000&userId=862b32cc-9b45-426d-b64b-9590ffe306bf&cache=v2"
+            alt=""
+          />
+        </p>
+      </div>
+      <p className={styles.goals}>
+        <p className={styles.l}>✨When do I use it?✨</p>
+        <p className={styles.feature}>
+          <div className={styles.goalContent}>
+            <p className={styles.featureTitle}>
+              Imagine your life with Missage!
+            </p>
+            <img
+              className={styles.featureImg}
+              src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F75887726-59b6-46c4-9526-07af5fdadb81%2Fmeeting.png?table=block&id=d92fc98c-460e-42eb-bf1e-df0af20519d7&spaceId=d6c7f512-633e-4709-ac5f-bc0979392ab1&width=2000&userId=862b32cc-9b45-426d-b64b-9590ffe306bf&cache=v2"
+              alt=""
+            />
+            <p>
+              Instead of dictating the conversation by hand or using another
+              recording app at the interview site, I used Missage to record the
+              conversation!
+            </p>
+            <img
+              className={styles.featureImg}
+              src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fd5139108-a1b2-4cd5-87a7-388f09429df6%2Fvideo.png?table=block&id=87ea7cef-a043-4535-8762-880c206893ad&spaceId=d6c7f512-633e-4709-ac5f-bc0979392ab1&width=2000&userId=862b32cc-9b45-426d-b64b-9590ffe306bf&cache=v2"
+              alt=""
+            />
+            <p>
+              Writing down subtitle by repeating the video several times was a
+              time-consuming task. Now, I just extract voice files from videos,
+              convert them into text, and refine them while listening again!
+            </p>
+            <img
+              className={styles.featureImg}
+              src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F6dbef193-80fc-496d-8fef-5071d6b165cd%2Finterview.png?table=block&id=6b7e7958-0c72-4e3c-8545-d6fa375d8a57&spaceId=d6c7f512-633e-4709-ac5f-bc0979392ab1&width=2000&userId=862b32cc-9b45-426d-b64b-9590ffe306bf&cache=v2"
+              alt=""
+            />
+            <p>
+              It is useful for one-on-one meetings or business interviews.
+              Usually, I felt sorry and burdened with the person in front of me
+              taking notes or typing with my head down, but now I can focus on
+              the conversation comfortably making eye contact with the other
+              person.
+            </p>
+            <img
+              className={styles.featureImg}
+              src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F3f0566af-8f3d-4b6c-b63b-bc5e548850cd%2Flecture.png?table=block&id=5ec5d42e-27e2-4791-9cbf-4cc75e44d5b1&spaceId=d6c7f512-633e-4709-ac5f-bc0979392ab1&width=2000&userId=862b32cc-9b45-426d-b64b-9590ffe306bf&cache=v2"
+              alt=""
+            />
+            <p>
+              I recorded the class and organized the contents of the day's class
+              through voice records converted into text. I focused more on the
+              class, and naturally reviewed the class by organizing lecture
+              records.
+            </p>
+          </div>
+        </p>
+      </p>
+      <div className={styles.bottom}>
+        <Link href="/api/login">
+          <a className={styles.try}> ➡️ Try Missage Free ⬅️ </a>
+        </Link>
       </div>
     </div>
   );

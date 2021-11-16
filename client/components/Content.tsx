@@ -91,10 +91,14 @@ const Named = ({ notes, pid, putNote, editTitle, editText, deleteNote }) => {
 
   const audiobox = () => {
     if (note) {
-      const blob = new Blob([note.audio.data], { type: 'audio/wav' });
+      console.log(note.audio);
+      const blob = new Blob([note.audio.data], {
+        type: note.audio.mimetype,
+      });
+      console.log(blob);
       const blobUrl = URL.createObjectURL(blob);
       console.log(blobUrl);
-      return <audio src={blobUrl} controls />;
+      return <audio src={note.audio.name} controls />;
     }
   };
 
@@ -144,7 +148,7 @@ const Named = ({ notes, pid, putNote, editTitle, editText, deleteNote }) => {
           </div>
         )}
         <div className={styles.extraInfo}>
-          {audiobox()}
+          {/* {audiobox()} */}
           {giveMeTime(note?.createdAt)}
         </div>
       </p>

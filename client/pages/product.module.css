@@ -1,11 +1,10 @@
 .page {
-  min-height: 100vh;
+  height: 70vh;
   background-image: url(../styles/blurry-gradient-haikei.svg);
   /* bottom */
-  background-position: bottom 200px center;
+  background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
-  background-attachment: fixed;
   background-origin: padding-box;
   background-clip: border-box;
 }
@@ -20,6 +19,7 @@
   justify-content: center;
   align-items: center;
   padding: 120px;
+  margin-top: 10px;
 }
 
 .col {
@@ -27,8 +27,15 @@
   flex-direction: column;
 }
 
-.l {
+.xl {
   font-size: 50px;
+  padding-top: 30px;
+  margin: 0;
+}
+
+.l {
+  color: var(--main-black);
+  font-size: 40px;
   padding-top: 30px;
   margin: 0;
 }
@@ -53,12 +60,38 @@
   background-color: var(--main-white);
 }
 
+.features {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.feature {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 50px;
+  padding-right: 50px;
+  width: 770px;
+}
+.content {
+  padding-left: 50px;
+}
+.featureImg {
+  width: 250px;
+  margin-right: 50px;
+}
+.featureTitle {
+  font-size: 20px;
+}
+
 /* Background */
 
 .wave {
   position: absolute;
   /* bottom */
-  bottom: 200px;
+  bottom: 30vh;
   left: 0;
   width: 100%;
   overflow: hidden;
@@ -67,10 +100,43 @@
 }
 
 .wave svg {
+  /* fill: aqua; */
   position: relative;
   display: block;
   width: calc(100% + 1.3px);
   height: 150px;
+  margin-bottom: 0px;
+}
+
+.goals {
+  padding: 50px;
+  /* margin-top: */
+  background-image: url(../styles/blurry-gradient-haikei.svg);
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+.goalContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 450px;
+}
+
+.bottom {
+  margin: 0;
+  background-color: var(--main-gray);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
 }
 
 /** For tablet devices **/
