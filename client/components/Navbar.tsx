@@ -2,14 +2,17 @@ import Link from 'next/link';
 import styles from './Navbar.module.css';
 import { useFetchUser } from '../utils/user';
 
-export default () => {
+const Named = () => {
   const { user, loading } = useFetchUser();
 
   return (
     <div className={styles.navbar}>
       <div className="logo">
+        <img src="../styles/logoremovebg.png" alt="" />
         <Link href="/product">
-          <a>Missage</a>
+          <a>
+            <img src="../styles/logoremovebg.png" alt="" />
+          </a>
         </Link>
       </div>
       <div className={styles.menu}>
@@ -18,6 +21,9 @@ export default () => {
         </Link>
         <Link href="/download">
           <a>Download</a>
+        </Link>
+        <Link href="/pricing">
+          <a>Pricing</a>
         </Link>
       </div>
       <div className={styles.auth}>
@@ -45,3 +51,5 @@ export default () => {
     </div>
   );
 };
+
+export default Named;

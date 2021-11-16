@@ -17,8 +17,6 @@
   background-clip: border-box;
 }
 
-@import '~antd/dist/antd.css';
-
 @font-face {
   font-family: climatefont;
   src: url(Climate_Crisis_Font_Ilmastofontti/ClimateCrisis-Variable.woff2);

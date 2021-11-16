@@ -8,7 +8,7 @@ import ApiService from './api/ApiService';
 import Router from 'next/router';
 import { useFetchUser } from '../utils/user';
 
-export default () => {
+const Named = () => {
   const [notes, setNotes] = useState([]);
   const { user, loading } = useFetchUser();
 
@@ -50,3 +50,5 @@ export default () => {
     </div>
   );
 };
+
+export default Named;

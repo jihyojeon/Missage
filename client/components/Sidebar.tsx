@@ -10,7 +10,7 @@ if (typeof window !== 'undefined') {
   });
 }
 
-export default ({ notes, putNote, pid }) => {
+const Named = ({ notes, putNote, pid }) => {
   const { user, loading } = useFetchUser();
 
   const [showID, setShowID] = useState('');
@@ -88,3 +88,5 @@ export default ({ notes, putNote, pid }) => {
     </div>
   );
 };
+
+export default Named;

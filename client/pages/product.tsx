@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Navbar from '../components/Navbar';
 import styles from './product.module.css';
 
-export default () => {
+const Named = () => {
   return (
     <div className={styles.page}>
       <Navbar></Navbar>
@@ -23,3 +23,5 @@ export default () => {
     </div>
   );
 };
+
+export default Named;

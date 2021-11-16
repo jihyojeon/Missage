@@ -13,7 +13,7 @@ import {
   useReactMediaRecorder,
 } from 'react-media-recorder';
 
-export default ({ postNote, userid }) => {
+const Named = ({ postNote, userid }) => {
   const send = async (userAudio: File) => {
     if (userAudio) {
       const formData = new FormData();
@@ -72,3 +72,5 @@ export default ({ postNote, userid }) => {
     </div>
   );
 };
+
+export default Named;

@@ -11,7 +11,7 @@ if (typeof window !== 'undefined') {
   });
 }
 
-export default ({ notes, pid, putNote, editTitle, editText, deleteNote }) => {
+const Named = ({ notes, pid, putNote, editTitle, editText, deleteNote }) => {
   const note = notes.find((note: {}) => note['_id'] === pid);
   console.log(note);
 
@@ -165,3 +165,5 @@ export default ({ notes, pid, putNote, editTitle, editText, deleteNote }) => {
     </div>
   );
 };
+
+export default Named;
