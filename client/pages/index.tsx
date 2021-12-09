@@ -10,6 +10,12 @@ export default function Index() {
     if (pathname == '/') {
       user ? Router.push('/note') : Router.push('/product');
     }
+    if (pathname == '/#') {
+      user ? Router.push('/note') : Router.push('/product');
+    }
+    if (pathname == '') {
+      user ? Router.push('/note') : Router.push('/product');
+    }
   });
   return <div className="main"></div>;
 }

@@ -67,7 +67,7 @@ const Named = ({ postNote, userid }) => {
           icon={status === 'recording' ? faStopCircle : faMicrophoneAlt}
           className={styles.icon}
         ></FontAwesomeIcon>
-        {mediaBlobUrl ? <audio src={mediaBlobUrl} controls autoPlay /> : null}
+        {/* {mediaBlobUrl ? <audio src={mediaBlobUrl} controls autoPlay /> : null} */}
       </div>
     </div>
   );

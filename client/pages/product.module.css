@@ -1,5 +1,5 @@
 .page {
-  height: 70vh;
+  height: 80vh;
   background-image: url(../styles/blurry-gradient-haikei.svg);
   /* bottom */
   background-position: center center;
@@ -62,7 +62,7 @@
 
 .features {
   padding: 100px;
-  margin-top: 30px;
+  /* margin-top: 10px; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -93,7 +93,7 @@
 .wave {
   position: absolute;
   /* bottom */
-  bottom: 30vh;
+  bottom: 20vh;
   left: 0;
   width: 100%;
   overflow: hidden;

@@ -21,13 +21,6 @@ const Note = () => {
     });
   }, []);
 
-  const postNote = (body) => {
-    ApiService.postNote(body).then((note) => {
-      setNotes([...notes, note]);
-      Router.push(`/note/${note._id}`);
-    });
-  };
-
   const putNote = (icon: string, id: string) => {
     ApiService.putNote({ icon }, id).then((updatedNote) => {
       setNotes((noteList) => {

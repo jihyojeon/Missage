@@ -40,7 +40,9 @@ const Named = () => {
       {user ? (
         <>
           <Sidebar
-            notes={notes.filter((note) => note['userID'] === user.sub)}
+            notes={
+              notes ? notes.filter((note) => note['userID'] === user.sub) : null
+            }
             putNote={putNote}
             pid="0"
           ></Sidebar>

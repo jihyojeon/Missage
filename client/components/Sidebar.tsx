@@ -40,7 +40,7 @@ const Named = ({ notes, putNote, pid }) => {
               <a className={styles.title}>{note['title']}</a>
             </Link>
           </div>
-          {showID === note['_id'] ? (
+          {note && showID === note['_id'] ? (
             <Picker
               pickerStyle={{ position: 'absolute' }}
               className={styles.picker}

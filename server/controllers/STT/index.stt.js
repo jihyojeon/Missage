@@ -2,17 +2,17 @@ import { SpeechClient } from '@google-cloud/speech';
 import fs from 'fs';
 
 export default async (input) => {
+  console.log(input);
   const timestamp = false;
   const keyFilename = 'controllers/STT/missage-38c481f53476.json';
   const client = new SpeechClient({ keyFilename });
-  let filename = `/Users/jihyojeon/Documents/Codeworks/Senior/Solo/Missage/server/uploads/${input}`;
+  let filename = `/Users/jihyojeon/Documents/Codeworks/Senior/Missage/Missage/server/uploads/${input}`;
 
   const languageCode = 'en-US';
 
   const config = {
     enableWordTimeOffsets: true,
     languageCode: languageCode,
-    alternativeLanguageCodes: [languageCode, 'ko-KR'],
   };
 
   const audio = {
@@ -34,6 +34,7 @@ export default async (input) => {
 
   response.results.forEach((result) => {
     sttOutput.transcript += result.alternatives[0].transcript;
+    console.log(sttOutput.transcript);
     if (timestamp) {
       result.alternatives[0].words.forEach((wordInfo) => {
         const startSecs =
