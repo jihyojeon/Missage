@@ -54,6 +54,9 @@ npm i
 
 ### Run the app
 
+**[🌟] Needs Google API secret key in ./server/controllers/STT/**  
+**[🌟] Needs auth0 secret key as client environments variable**
+
 1. in /client : Use Google **Chrome**
 
 ```
