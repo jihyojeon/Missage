@@ -6,7 +6,7 @@ export default async (input) => {
   const timestamp = false;
   const keyFilename = 'controllers/STT/missage-38c481f53476.json';
   const client = new SpeechClient({ keyFilename });
-  let filename = `/Users/jihyojeon/Documents/Codeworks/Senior/Missage/Missage/server/uploads/${input}`;
+  let filename = `uploads/${input}`;
 
   const languageCode = 'en-US';
 
